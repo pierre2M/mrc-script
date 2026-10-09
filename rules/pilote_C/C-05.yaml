@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-05
+titre: 'Garde : deux silences ne sont pas un accord'
+status: theorem
+nature: G
+perimetre: hors_noyau
+application: Quand ni A ni B ne portent de ligne envers l'autre.
+enonce: Deux registres vides l'un envers l'autre sont en écriture duale par définition. Le résultat s'affiche «
+  aucune ligne réciproque inscrite », jamais « accord ».
+predicat:
+- module: PR35_EcritureDuale
+  nom: lignesVers
+  role: definition_executee
+encodage: '`lignesVers A B = [] ∧ lignesVers B A = []`.'
+lean_ref:
+- module: PR35_EcritureDuale
+  nom: deux_silences_sont_en_ecriture_duale
+  role: theoreme
+  nature: G
+  noyau: false
+  axiomes_lean: []
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: — (non cité par NT-ARCH)
+autres_refs:
+- 'PR-20 : `absence_n_est_pas_lien_nul` (même leçon)'
+- 'Annexe méthodologique §A.15.11 : E5, aucune ligne réciproque (D9)'
+defect_effect:
+  code: E5
+  branche: 5
+  marqueur: '[AUCUNE LIGNE RÉCIPROQUE]'
+  effet: bien formée, marquée
+defect_note: Classement inscrit à l'Annexe méthodologique §A.15.11 (E5) par décision du porteur D9 du 07/10/2026.
+refutation_note: Garde de lecture ; pas de réfutation propre.
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Le dossier `ok/04_deux_silences` porte le marqueur et non le libellé « accord ».
+affichage: 'Garde (nature G) : jamais un appui seul.'
+temoins:
+  ok:
+  - ok/04_deux_silences
+  ko: []

@@ -1,0 +1,72 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-08
+titre: Maintien structuré (CONV-11)
+status: convention
+perimetre: noyau
+application: Quand un registre porte `registre_du_milieu`.
+enonce: Le registre du milieu porte un maintien structuré — porteur, contrepartie, registre, situation (dû, payé),
+  horizon, critère — et ce maintien nomme le registre du titulaire. Le solde est calculé (dû − payé), jamais déclaré.
+predicat:
+- module: PR37_RegistreDuMilieu
+  nom: bienForme
+  role: definition_executee
+- module: PR23_MouvementDeMaintien
+  nom: MaintienCONV11.solde
+  role: definition_executee
+encodage: Partie `maintien` de `bienForme` ; le solde est `MaintienCONV11.solde`.
+lean_ref:
+- module: PR37_RegistreDuMilieu
+  nom: sans_maintien_pas_d_appui
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: maintien_d_un_autre_registre_pas_d_appui
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: registre_mal_nomme_l_ecart_revient
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR37_RegistreDuMilieu
+  nom: la_dette_de_preservation_du_milieu_est_calculee
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+conventions:
+- CONV-11
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.3bis (CONV-11) ; §8.5.0 (PR-37 « porte le maintien »)
+autres_refs:
+- Annexe méthodologique §A.15.4 (énoncé canonique)
+- '§A.15.11 : CONV-11 en E4'
+defect_effect:
+  code: E4
+  branche: 5
+  marqueur: '[MAINTIEN NON STRUCTURÉ]'
+  effet: mal formée, marquée
+refutation: CONV-11 tombe si l'on exhibe un régime où l'apporteur de l'effort figure comme créancier et où la lecture
+  de la priorité n'exige aucun solde ; ou une mention non structurée à partir de laquelle un tiers calcule effectivement
+  l'écart (NT-ARCH §8.5.3bis).
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Sans maintien, ou avec un maintien nommant un autre registre, le marqueur est posé et l'écart
+  envers le milieu revient.
+affichage: 'Convention : jamais « démontrée ». PR-37 et PR-23 en établissent la forme et la motivent.'
+temoins:
+  ok:
+  - ok/03_riviere_arretee
+  ko:
+  - ko/07_sans_maintien
+  - ko/08_maintien_autre_registre

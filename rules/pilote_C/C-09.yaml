@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-09
+titre: Triplet porteur de l'inscription de communalité
+status: definition
+perimetre: noyau
+application: Quand un côté est ancré par `inscription_communalite_uri_ref`.
+enonce: 'Toute inscription de communalité déclare un triplet porteur : l''entité, la personne qui inscrit, le rôle
+  qui l''y habilite.'
+predicat: []
+encodage: Contrôle de présence des trois champs. Aucun prédicat Lean.
+lean_ref: []
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.0, champ `inscription_communalite_uri_ref`
+autres_refs:
+- Annexe H §H.1
+- 'Annexe méthodologique §A.15.11 : E3, « triplet d''inscription de communalité incomplet »'
+defect_effect:
+  code: E3
+  branche: 4
+  marqueur: '[TRIPLET PORTEUR INCOMPLET]'
+  effet: mal formée, phase DÉLIBÉRATION
+refutation_note: '[LACUNE] Non déclarée.'
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Une inscription de communalité sans personne ou sans rôle est mal formée, phase DÉLIBÉRATION.
+affichage: Exigence de champ, sans ancrage Lean.
+reserve: 'Règle sans théorème : son exécution en phase 2 sera une vérification de présence, hors Lean. [DÉCLARÉ]'
+temoins:
+  ok:
+  - ok/03_riviere_arretee
+  ko:
+  - ko/09_triplet_incomplet

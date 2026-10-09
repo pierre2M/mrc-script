@@ -1,0 +1,90 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-01
+titre: 'Ancrage de l''écriture duale : deux teneurs, un ancrage déclaré par côté'
+status: theorem
+nature: A
+perimetre: noyau
+application: Toujours, sur le couple des deux registres.
+enonce: 'Les deux registres sont tenus par des teneurs identifiés et distincts, et chaque côté porte son ancrage
+  déclaré : `traduction_uri_ref` (comptabilité tenue) ou `inscription_communalite_uri_ref` (registre de communalité),
+  indifféremment. Le registre de communalité est une modalité d''ancrage pour les entités ou concernés sans comptabilité
+  admise (décision du porteur D7, 07/10/2026).'
+predicat:
+- module: PR31_BonneFormationDeclarative
+  nom: ancreeDuale
+  role: definition_executee
+- module: PR31_BonneFormationDeclarative
+  nom: ancree
+  role: definition_executee
+encodage: '`ancreeDuale ⟨teneur_A, ⟨traduction_A, communalite_A⟩⟩ ⟨teneur_B, ⟨traduction_B, communalite_B⟩⟩` ; par
+  côté, `ancree ⟨traduction, communalite⟩` nomme le côté en défaut.'
+lean_ref:
+- module: PR31_BonneFormationDeclarative
+  nom: sans_ancrage_refusee
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean:
+  - propext
+- module: PR31_BonneFormationDeclarative
+  nom: le_registre_de_communalite_suffit
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR31_BonneFormationDeclarative
+  nom: la_duale_exige_un_ancrage_par_cote
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR31_BonneFormationDeclarative
+  nom: ancree_duale_ssi
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR31_BonneFormationDeclarative
+  nom: deux_comptabilites_tenues_ancrent_une_duale
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR31_BonneFormationDeclarative
+  nom: le_registre_de_communalite_ancre_un_cote
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.0, encadré « Toute écriture de la sous-couche T porte au moins un ancrage » et décision du porteur
+    D7 (07/10/2026)
+autres_refs:
+- 'Annexe méthodologique §A.15.11 : E1, « écriture T sans ancrage »'
+- AX-15 (homologie avec la traçabilité des relations bancaires)
+defect_effect:
+  code: E1
+  branche: 1
+  marqueur: null
+  effet: refus d'inscription
+refutation: L'élargissement D7 tombe si l'on établit, pour un couple de registres dont l'un au moins n'est pas une
+  comptabilité tenue, qu'aucun état de rapprochement contrôlable ne peut être établi entre eux (NT-ARCH §8.5.0,
+  condition proposée, à confirmer par le porteur).
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: 'Deux comptabilités tenues, une comptabilité et un registre de communalité, deux registres
+  de communalité : ancrés. Un côté sans ancrage : refusé.'
+affichage: Condition démontrée sur sa forme (PR-31) ; le défaut produit un refus.
+reserve: 'Ce que la règle ne contrôle pas : les exigences propres au financement écologique (affectation des financements,
+  engagements, réalisation) restent distinctes du contrôle général d''ancrage. L''homologie bancaire n''assimile
+  pas l''engagement écologique à une dette financière et ne confère aucun pouvoir d''émission monétaire (NT-ARCH
+  §8.5.0, D7).'
+temoins:
+  ok:
+  - ok/01_pret_bancaire
+  - ok/03_riviere_arretee
+  ko:
+  - ko/01_sans_ancrage_B

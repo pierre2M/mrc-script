@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-02
+titre: Deux teneurs distincts
+status: theorem
+nature: A
+perimetre: noyau
+application: Toujours.
+enonce: 'Les deux registres ont des teneurs distincts : l''écriture duale est un accord entre deux teneurs (PR-35,
+  propriété (i)). Conjoint de `ancreeDuale` (C-01), nommé à part pour que le motif du refus soit lisible.'
+predicat:
+- module: PR31_BonneFormationDeclarative
+  nom: ancreeDuale
+  role: definition_executee
+encodage: 'Premier conjoint de `ancreeDuale` : `!(teneur_A == teneur_B)`.'
+lean_ref:
+- module: PR31_BonneFormationDeclarative
+  nom: un_seul_teneur_pas_de_duale
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+axiomes:
+- AX-15
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.0 (« deux registres tenus par des teneurs identifiés et distincts », D7)
+autres_refs:
+- 'Annexe méthodologique, fiche AX-15 : « AX-15 tombe comme ancrage de N2 si [...] il n''y aurait qu''un teneur
+  »'
+- 'Annexe méthodologique §A.15.11 : E1, écriture duale à un seul teneur (D9)'
+defect_effect:
+  code: E1
+  branche: 1
+  marqueur: null
+  effet: 'refus d''inscription (classe de C-01 : l''écriture duale n''est pas ancrée)'
+refutation: AX-15 tombe comme ancrage de N2 si les deux registres ne sont pas tenus indépendamment (fiche AX-15).
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Un dossier dont A et B ont le même teneur est refusé, même si les deux côtés sont ancrés.
+affichage: Condition démontrée sur sa forme (PR-31, D7).
+temoins:
+  ok:
+  - ok/01_pret_bancaire
+  ko:
+  - ko/02_meme_teneur

@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Phase 2d — intégration continue : ProfReg (build complet et audit) et validateur du pilote C.
+name: ci
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"   # chaque lundi : détecte une dérive de ProfReg publié
+jobs:
+  reference:
+    name: État de référence (ProfReg publié = manifeste)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { repository: pierre2M/ProfReg, path: profreg }
+      - run: |
+          attendu=$(grep -o 'Arbre git (local = publié) | `[0-9a-f]*`' corpus/_MANIFESTE_v5.7.md | grep -o '[0-9a-f]\{40\}')
+          reel=$(git -C profreg rev-parse 'HEAD^{tree}')
+          echo "arbre attendu $attendu ; arbre publié $reel"
+          test "$attendu" = "$reel" || { echo "ECART_DE_VERSION : ProfReg publié ≠ manifeste"; exit 1; }
+
+  profreg:
+    name: ProfReg — lake build, audit, R-7
+    needs: reference
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { repository: pierre2M/ProfReg, path: profreg }
+      - name: elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - working-directory: profreg
+        run: lake exe cache get
+      - working-directory: profreg
+        run: lake build
+      - working-directory: profreg
+        run: lake env lean Audit.lean > ../audit_ci.log 2>&1
+      - run: tools/verifier_audit.sh audit_ci.log
+      - working-directory: profreg
+        run: lake env lean R7_Controle.lean
+      - uses: actions/upload-artifact@v4
+        with: { name: audit-profreg, path: audit_ci.log }
+
+  mrc-check:
+    name: Validateur du pilote C — règles, vecteurs, reçus
+    needs: reference
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { repository: pierre2M/ProfReg, path: profreg }
+      - name: elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - run: lake build
+      - run: pip install jsonschema pyyaml
+      - name: Règles (garde-fous ; théorèmes cités existants et audités)
+        run: python3 tools/check_rules.py --profreg profreg
+      - name: Vecteurs (schéma, cohérence, génération Lean)
+        run: python3 tools/check_vectors.py && git diff --exit-code tests/lean/PiloteC_Vecteurs.lean
+      - name: Valeurs attendues prouvées en Lean
+        run: lake env lean tests/lean/PiloteC_Vecteurs.lean && lake env lean tests/lean/D7_Verification_PR31.lean
+      - name: Reçus et rejeu
+        run: python3 tools/test_recus.py
+      - name: Agent, validation, registre (phase 3)
+        run: python3 tests/agent/test_chaine.py && python3 tools/check_registre.py

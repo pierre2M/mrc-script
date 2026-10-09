@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-11
+titre: Statut de l'écart selon la communication
+status: theorem
+nature: A
+perimetre: hors_noyau
+application: Pour chaque ligne de l'état de rapprochement, quand l'autre registre déclare `communication`.
+enonce: Une ligne en écart est constatée, contestée (l'autre teneur porte une ligne de même rôle), non vérifiable
+  (registre non communiqué) ou refusée. La qualification ne change pas l'écart.
+predicat:
+- module: PR40_StatutDeLEcart
+  nom: ecartQualifie
+  role: definition_executee
+encodage: '`ecartQualifie com RA RB` ; information jointe à l''état de rapprochement.'
+lean_ref:
+- module: PR40_StatutDeLEcart
+  nom: statut_temoin_discriminant
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR40_StatutDeLEcart
+  nom: la_communication_ne_change_pas_l_ecart
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+  - Quot.sound
+- module: PR40_StatutDeLEcart
+  nom: non_verifiable_n_est_pas_constate
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: — (non cité par NT-ARCH)
+autres_refs:
+- 'PR-35, reste de traduction 3 : la communication du registre n''est pas garantie'
+defect_note: 'Sans objet : qualification d''un écart.'
+refutation_note: '[LACUNE] Non déclarée.'
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: 'Registre de B non communiqué : la ligne de A en écart est « non vérifiable », non « constatée
+  ».'
+affichage: Information hors noyau.
+temoins:
+  ok:
+  - ok/02_apres_remboursement
+  ko: []

@@ -1,0 +1,1296 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Généré par tools/gen_rules.py — NE PAS ÉDITER À LA MAIN
+# noyau  sha256 5a8c71b9cbd825a10216404318d6808cc048ba192431e79b418ac1056510ba22
+# ntarch sha256 c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+# profreg arbre  4ef762772e34a412152f4a63f55b674eaac967df
+# audit  sha256 61ebbdac64316f028cfbad2bb279536374e44d7f85b693ad093e059716540ae2
+mrc_release: "v5.7"
+profreg_arbre: "4ef762772e34a412152f4a63f55b674eaac967df"
+theoremes:
+  - id: "CB3_candidate_not_oplax_monoidal"
+    status: theorem
+    nature: A
+    lean_ref: {module: "CB3Attempt", nom: "CB3_candidate_not_oplax_monoidal", axiomes_lean: ["propext", "Classical.choice", "Quot.sound"]}
+    enonce: "Sur [0,1], il est faux que min(a,b) ≤ a·b pour tous a, b : le candidat identité n'est pas *oplax* monoïdal"
+    noyau_section: "1. Couche 0 — changement de base et fraction actorielle (§2, §2ter)"
+    ntarch_sections: ["§2. Primitive de Couche 0", "§2ter.4 Portée exacte de CB₃"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-1"]
+  - id: "CB2_one"
+    status: theorem
+    nature: A
+    lean_ref: {module: "ChangeOfBase", nom: "CB2_one", axiomes_lean: ["propext", "Classical.choice", "Quot.sound"]}
+    enonce: "CB₂(1) = 0 et CB₂(0) = ⊤"
+    noyau_section: "1. Couche 0 — changement de base et fraction actorielle (§2, §2ter)"
+    ntarch_sections: ["§2ter.5 Lacune ouverte"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "CB2_zero"
+    status: theorem
+    nature: A
+    lean_ref: {module: "ChangeOfBase", nom: "CB2_zero", axiomes_lean: ["propext", "Classical.choice", "Quot.sound"]}
+    enonce: "CB₂(1) = 0 et CB₂(0) = ⊤"
+    noyau_section: "1. Couche 0 — changement de base et fraction actorielle (§2, §2ter)"
+    ntarch_sections: ["§2ter.5 Lacune ouverte"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "fraction_exhibe_sa_source"
+    status: theorem
+    nature: A
+    lean_ref: {module: "LotL2_PR2_PR14", nom: "fraction_exhibe_sa_source", axiomes_lean: []}
+    enonce: "Toute fraction actorielle est de la forme `declaree s v`, donc porte un champ source"
+    noyau_section: "1. Couche 0 — changement de base et fraction actorielle (§2, §2ter)"
+    ntarch_sections: ["§2. Primitive de Couche 0", "§2ter.4 Portée exacte de CB₃", "§7. Couplages et invariants inter-couches", "§8. Statut des vérifications formelles", "§B.2 Invariants de cohérence Couche 2 ↔ Partie A"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-1"]
+  - id: "registre_augmente_coherent"
+    status: theorem
+    nature: A
+    lean_ref: {module: "LotL2_PR2_PR14", nom: "registre_augmente_coherent", axiomes_lean: []}
+    enonce: "Dans un registre comptable augmenté : `pFin a b = plein` ⇔ `pCom a b = plein`"
+    noyau_section: "10.3 Registre comptable augmenté (L2) et lien inter-acteurs (§8.5.3bis, §8.5.4, §8septies) — CONV-10"
+    ntarch_sections: ["8.5.3bis Les charges de personnel", "8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "registre_augmente_non_equivalence"
+    status: theorem
+    nature: A
+    lean_ref: {module: "LotL2_PR2_PR14", nom: "registre_augmente_non_equivalence", axiomes_lean: ["propext"]}
+    enonce: "Il existe une instance où un lien du socle est plein des deux côtés et où un lien hors socle ne l'est d'aucun"
+    noyau_section: "10.3 Registre comptable augmenté (L2) et lien inter-acteurs (§8.5.3bis, §8.5.4, §8septies) — CONV-10"
+    ntarch_sections: ["8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "B1_coherence_condition"
+    status: theorem
+    nature: A
+    lean_ref: {module: "P2Synthesis", nom: "B1_coherence_condition", axiomes_lean: ["propext", "Classical.choice", "Quot.sound"]}
+    enonce: "Si p₁ (à valeurs réelles) est une extension compatible de p₀ (p₁ a b = 1 ⇔ p₀ a b) et si p₀ satisfait R1 (symétrie), alors p₁ a b = 1 → p₁ b a = 1. **L'équivalence « fraction = 1 ⇔ ACTORIEL » est une hypothèse du théorème, pas sa conclusion**"
+    noyau_section: "2. Couche 1 — R1 et régime systémique (§2, §7)"
+    ntarch_sections: ["§2. Primitive de Couche 0", "§2ter.4 Portée exacte de CB₃", "§7. Couplages et invariants inter-couches", "§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "systemique_requires_R1_extension"
+    status: theorem
+    nature: A
+    lean_ref: {module: "P2Synthesis", nom: "systemique_requires_R1_extension", axiomes_lean: ["propext", "Classical.choice", "Quot.sound"]}
+    enonce: "Une interaction systémique sans créancier ne satisfait pas R1 standard"
+    noyau_section: "2. Couche 1 — R1 et régime systémique (§2, §7)"
+    ntarch_sections: ["§2. Primitive de Couche 0", "§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "BienFormee_ne_borne_pas_le_quintuplet"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR10_StatutSeuil", nom: "BienFormee_ne_borne_pas_le_quintuplet", axiomes_lean: ["propext"]}
+    enonce: "Il existe une mobilisation seuil-valuatif `BienFormee` sans cinquième terme déclaré"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-9"]
+  - id: "obligation_non_cessible"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR11_ObligationNonCessible", nom: "obligation_non_cessible", axiomes_lean: []}
+    enonce: "Un transfert ne produit aucune obligation : l'obligation n'est pas cessible"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "seule_la_realisation_eteint"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR11_ObligationNonCessible", nom: "seule_la_realisation_eteint", axiomes_lean: ["propext"]}
+    enonce: "Si un événement fait passer l'obligation à « réalisée », c'est une réalisation vérifiée. Le modèle ignore la remise et la prescription : portée bornée à l'extinction par exécution"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: ["§4bis.2 L'extinction n'est pas un cinquième état de §4"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "sans_mandat_borne_aucune_repartition"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR12_NonConfusionDettes", nom: "sans_mandat_borne_aucune_repartition", axiomes_lean: ["propext"]}
+    enonce: "Dette de régime A3 dont le mandat du décideur n'est pas borné : le traitement « répartir » ne produit rien"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-3", "AX-9"]
+  - id: "sans_porteur_nomme_pas_de_renversement"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR15_ChargeDePreuve", nom: "sans_porteur_nomme_pas_de_renversement", axiomes_lean: []}
+    enonce: "Sans porteur nommé de la charge de preuve, aucun renversement n'est déclaré (renommé D-13-4 ; énoncé repris de la source Lean)"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "autorefutation_n_est_pas_refutation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR16_RefutationTiers", nom: "autorefutation_n_est_pas_refutation", axiomes_lean: []}
+    enonce: "Une inscription bien formée dont les seuls réfutants admis sont ses porteurs est contradictoire : l'autoréfutation n'est pas une réfutation"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: ["§8octies-bis Trois motifs transversaux"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "liste_close_exclut_toujours"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR16_RefutationTiers", nom: "liste_close_exclut_toujours", axiomes_lean: []}
+    enonce: "Si les réfutants ne sont pas énumérables, toute liste close en exclut au moins un"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: ["8.4bis Le régime est déclaré par un collectif", "8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "serie_bien_formee_agregat_non_conforme"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR19_SerieAgregat", nom: "serie_bien_formee_agregat_non_conforme", axiomes_lean: ["propext", "Quot.sound"]}
+    enonce: "Pour tout seuil > 0, il existe une série d'écritures toutes triviales sous le seuil dont l'agrégat **par somme** n'est pas conforme. Coûts entiers : le résultat ne porte pas sur V₂ (§2ter.5)"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "accord_sur_l_existence_pas_sur_la_valeur"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR20_MiroirInterActeurs", nom: "accord_sur_l_existence_pas_sur_la_valeur", axiomes_lean: ["propext"]}
+    enonce: "Il existe deux registres augmentés, chacun cohérent, qui diffèrent sur un couple. Le témoin a un socle vide : il n'y a pas d'accord sur la valeur parce qu'il n'y a pas de lien"
+    noyau_section: "10.3 Registre comptable augmenté (L2) et lien inter-acteurs (§8.5.3bis, §8.5.4, §8septies) — CONV-10"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "§8octies-bis Trois motifs transversaux"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_champ_ajoute_un_degre_de_liberte"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR21_ChampDouble", nom: "le_champ_ajoute_un_degre_de_liberte", axiomes_lean: ["propext"]}
+    enonce: "Pour tout contrôle calculable et toute donnée, il existe deux fiches de même donnée, l'une cohérente, l'autre non : le champ déclaré ajoute un degré de liberté"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "8.5.2bis Instruction du don"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "les_deux_mensonges_existent"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR21_ChampDouble", nom: "les_deux_mensonges_existent", axiomes_lean: []}
+    enonce: "Le désaccord entre champ et contrôle existe dans les deux sens"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "PR22_ne_departage_pas_les_regimes"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR22_RegimeDeclare", nom: "PR22_ne_departage_pas_les_regimes", axiomes_lean: []}
+    enonce: "Garde : les natures et les noms de régimes diffèrent ; aucun n'est départagé"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["8.4bis Le régime est déclaré par un collectif", "8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "PR22_ne_supprime_pas_les_regimes_etablis"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR22_RegimeDeclare", nom: "PR22_ne_supprime_pas_les_regimes_etablis", axiomes_lean: []}
+    enonce: "Garde : le régime foncier reste porté par le normalisateur IFRS"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["8.4bis Le régime est déclaré par un collectif", "8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "enumeration_close_exclut_un_collectif"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR22_RegimeDeclare", nom: "enumeration_close_exclut_un_collectif", axiomes_lean: []}
+    enonce: "Population non énumérable : une énumération close de régimes exclut un collectif"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["8.4bis Le régime est déclaré par un collectif", "8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "une_chose_deux_natures"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR22_RegimeDeclare", nom: "une_chose_deux_natures", axiomes_lean: []}
+    enonce: "Instance du sol : une même chose, deux natures, deux régimes, deux porteurs"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["§4bis.4 Ce que les deux lemmes centraux règlent, et qu'aucun", "8.4bis Le régime est déclaré par un collectif"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-12"]
+  - id: "une_liste_close_de_collectifs_Nat_exclut_quelqu_un"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR22_RegimeDeclare", nom: "une_liste_close_de_collectifs_Nat_exclut_quelqu_un", axiomes_lean: ["propext", "Quot.sound"]}
+    enonce: "Instance sur `Nat` : une liste close exclut quelqu'un (ex-`la_decision_1_exige_l_ouverture`)"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["8.4bis Le régime est déclaré par un collectif"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "BienFormee_ne_borne_pas_le_maintien"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR23_MouvementDeMaintien", nom: "BienFormee_ne_borne_pas_le_maintien", axiomes_lean: []}
+    enonce: "Il existe une écriture `e` bien formée au sens actuel qui ne satisfait pas CONV-11"
+    noyau_section: "10.4 Mouvement de maintien (§8.5.3bis) — PR-23 ; motive et borne CONV-11 sans la démontrer"
+    ntarch_sections: ["8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "CONV11_satisfaite_sans_registre_financier"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR23_MouvementDeMaintien", nom: "CONV11_satisfaite_sans_registre_financier", axiomes_lean: []}
+    enonce: "Pour tout registre, une écriture satisfait CONV-11 avec un maintien porté par ce registre : le registre financier n'est pas requis"
+    noyau_section: "10.4 Mouvement de maintien (§8.5.3bis) — PR-23 ; motive et borne CONV-11 sans la démontrer"
+    ntarch_sections: ["8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "PR23_ne_certifie_pas_le_nommage"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR23_MouvementDeMaintien", nom: "PR23_ne_certifie_pas_le_nommage", axiomes_lean: []}
+    enonce: "Deux écritures conformes à CONV-11, nommant deux registres différents, ont le même écart lisible : PR-23 ne certifie pas le nommage"
+    noyau_section: "10.4 Mouvement de maintien (§8.5.3bis) — PR-23 ; motive et borne CONV-11 sans la démontrer"
+    ntarch_sections: ["8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "deux_dettes_distinctes_meme_ecriture"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR23_MouvementDeMaintien", nom: "deux_dettes_distinctes_meme_ecriture", axiomes_lean: []}
+    enonce: "Sans maintien inscrit, deux situations d'écarts différents donnent la même écriture"
+    noyau_section: "10.4 Mouvement de maintien (§8.5.3bis) — PR-23 ; motive et borne CONV-11 sans la démontrer"
+    ntarch_sections: ["8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "priorite_sans_assiette"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR23_MouvementDeMaintien", nom: "priorite_sans_assiette", axiomes_lean: []}
+    enonce: "Sans maintien inscrit, R-PRIORITE-CREANCIERS ne rend aucun verdict"
+    noyau_section: "10.4 Mouvement de maintien (§8.5.3bis) — PR-23 ; motive et borne CONV-11 sans la démontrer"
+    ntarch_sections: ["8.5.3bis Les charges de personnel"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "deux_regimes_divergents_ne_suffisent_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "deux_regimes_divergents_ne_suffisent_pas", axiomes_lean: []}
+    enonce: "Un lemme 4 portant deux prises renseignées, sans lemme 3 antérieur, est mal formé : la lecture paresseuse est refusée"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "l_extinction_ne_depend_pas_de_l_attribution"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "l_extinction_ne_depend_pas_de_l_attribution", axiomes_lean: []}
+    enonce: "Orthogonalité : une obligation non attribuée peut être éteinte, une attribuée non éteinte, et les deux sont bien formées"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "la_machine_d_attribution_ignore_l_extinction"
+    status: theorem
+    nature: G
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "la_machine_d_attribution_ignore_l_extinction", axiomes_lean: []}
+    enonce: "nonAttribuee ⇒ critique n'est pas valide, quel que soit l'état d'extinction"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: ["§4bis.3 Le champ `etat_extinction`", "§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_miroir_des_concernes_leve_le_marqueur"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "le_miroir_des_concernes_leve_le_marqueur", axiomes_lean: ["propext"]}
+    enonce: "Si les concernés tiennent le miroir, le marqueur est levé"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: ["§4bis.3 Le champ `etat_extinction`"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_quart_lemme_est_le_regime_de_A2"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "le_quart_lemme_est_le_regime_de_A2", axiomes_lean: []}
+    enonce: "Une dette A2 au lemme 4 est bien formée (après un lemme 3)"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: ["§4bis.3 Le champ `etat_extinction`"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-2"]
+  - id: "le_silence_ne_solde_rien"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "le_silence_ne_solde_rien", axiomes_lean: ["propext"]}
+    enonce: "NONDECLARE est bien formé et ne compte pas comme éteint : le silence ne solde rien"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "le_tiers_atteste_leve_le_refus"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "le_tiers_atteste_leve_le_refus", axiomes_lean: []}
+    enonce: "Un lemme 4 précédé d'un lemme 3 attesté est bien formé (dépendance 4 → 3)"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "seul_debiteur_bien_forme_mais_marque"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "seul_debiteur_bien_forme_mais_marque", axiomes_lean: []}
+    enonce: "Une extinction déclarée par le seul débiteur est bien formée, marquée, et comptée éteinte"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: ["§4bis.3 Le champ `etat_extinction`"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-7"]
+  - id: "tiers_lemme_sans_critere_mal_forme"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "tiers_lemme_sans_critere_mal_forme", axiomes_lean: []}
+    enonce: "Un lemme 3 avec interprète mais sans critère de résolution est mal formé"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "une_dette_A2_ne_s_eteint_jamais"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "une_dette_A2_ne_s_eteint_jamais", axiomes_lean: ["propext"]}
+    enonce: "Une dette de régime A2 inscrite ETEINTE est mal formée"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: ["§4bis.3 Le champ `etat_extinction`"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-2"]
+  - id: "une_extinction_bien_formee_peut_etre_une_remise"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR26_ExtinctionSecondAxe", nom: "une_extinction_bien_formee_peut_etre_une_remise", axiomes_lean: []}
+    enonce: "Une extinction bien formée peut être une remise"
+    noyau_section: "5. Couche 1 — extinction, second axe (§4bis) — PR-26 et PR-11"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "PR12_coincide_avec_la_fiche"
+    status: theorem
+    nature: G
+    lean_ref: {module: "PR27_Candidats_Septembre", nom: "PR12_coincide_avec_la_fiche", axiomes_lean: []}
+    enonce: "La qualification d'avarie du code coïncide avec la fiche"
+    noyau_section: "8. Contrôle des énoncés et des champs (§8)"
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "fraction_exhibe_une_source_eventuellement_vide"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR27_Candidats_Septembre", nom: "fraction_exhibe_une_source_eventuellement_vide", axiomes_lean: []}
+    enonce: "Ce champ peut être vide : `declaree \"\" v` existe"
+    noyau_section: "1. Couche 0 — changement de base et fraction actorielle (§2, §2ter)"
+    ntarch_sections: ["§2. Primitive de Couche 0", "§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-1"]
+  - id: "l_avarie_qualifiee_ne_suffit_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR27_Candidats_Septembre", nom: "l_avarie_qualifiee_ne_suffit_pas", axiomes_lean: ["propext"]}
+    enonce: "Il existe une répartition dont l'avarie est qualifiée et qui reste mal formée"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-3"]
+  - id: "le_repartiteur_non_nomme_ne_decouple_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR27_Candidats_Septembre", nom: "le_repartiteur_non_nomme_ne_decouple_pas", axiomes_lean: ["propext"]}
+    enonce: "Un répartiteur non nommé rend la répartition mal formée"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-3"]
+  - id: "BienFormee_ne_borne_pas_la_prospective"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR28_AncragesConventions", nom: "BienFormee_ne_borne_pas_la_prospective", axiomes_lean: []}
+    enonce: "Il existe une écriture bien formée (PR-8), engageant au-delà de l'exercice, qui ne satisfait pas CONV-6 : le trou"
+    noyau_section: "10.3ter Ancrages de conventions (§8, rubrique « Conventions d'architecture rattachées ») — PR-28."
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-6"]
+  - id: "CONV6_est_satisfiable"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR28_AncragesConventions", nom: "CONV6_est_satisfiable", axiomes_lean: []}
+    enonce: "CONV-6 est satisfiable"
+    noyau_section: "10.3ter Ancrages de conventions (§8, rubrique « Conventions d'architecture rattachées ») — PR-28."
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-6"]
+  - id: "la_comparaison_sur_un_axe_n_est_pas_le_classement"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR28_AncragesConventions", nom: "la_comparaison_sur_un_axe_n_est_pas_le_classement", axiomes_lean: []}
+    enonce: "Deux profils peuvent être ordonnés en sens inverse sur un axe et sur le score composite"
+    noyau_section: "10.3ter Ancrages de conventions (§8, rubrique « Conventions d'architecture rattachées ») — PR-28."
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-14"]
+  - id: "nondeclare_force_deliberation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR28_AncragesConventions", nom: "nondeclare_force_deliberation", axiomes_lean: []}
+    enonce: "Sous la règle déclarée, un seuil `NONDECLARE` ne rend accessible que la délibération"
+    noyau_section: "10.3ter Ancrages de conventions (§8, rubrique « Conventions d'architecture rattachées ») — PR-28."
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-8"]
+  - id: "absent_n_implique_pas_violation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR29_TableArites", nom: "absent_n_implique_pas_violation", axiomes_lean: ["propext"]}
+    enonce: "P⁻→∅ est une violation ; C⁻→E⁻ est une lacune, puisque E⁻ n'est pas dans le miroir de C⁻ (A)"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "branches_fideles_a_la_table"
+    status: theorem
+    nature: T
+    lean_ref: {module: "PR29_TableArites", nom: "branches_fideles_a_la_table", axiomes_lean: ["propext"]}
+    enonce: "La transcription compte 27 branches, fidèles à la table"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_colonne_d_origine_ne_satisfait_pas_B7"
+    status: theorem
+    nature: T
+    lean_ref: {module: "PR29_TableArites", nom: "la_colonne_d_origine_ne_satisfait_pas_B7", axiomes_lean: ["propext"]}
+    enonce: "Colonne d'origine : 15 branches inter-acteurs ou mixtes, dont 8 échouent au contrôle (liste nommée)"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_troisieme_arite_n_est_pas_la_deuxieme"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR29_TableArites", nom: "la_troisieme_arite_n_est_pas_la_deuxieme", axiomes_lean: []}
+    enonce: "Une écriture bien formée à deux livres, relue à trois, ne l'est plus (A)"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_decompte_depend_de_la_lecture_du_plus"
+    status: theorem
+    nature: T
+    lean_ref: {module: "PR29_TableArites", nom: "le_decompte_depend_de_la_lecture_du_plus", axiomes_lean: ["propext"]}
+    enonce: "10 échecs en lecture littérale du « + », 8 en lecture composite"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_dedoublement_conserve_la_contrepartie"
+    status: theorem
+    nature: T
+    lean_ref: {module: "PR29_TableArites", nom: "le_dedoublement_conserve_la_contrepartie", axiomes_lean: []}
+    enonce: "Le dédoublement de la colonne ne perd aucune contrepartie"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_statut_ne_se_lit_pas_sur_la_table"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR29_TableArites", nom: "le_statut_ne_se_lit_pas_sur_la_table", axiomes_lean: ["propext"]}
+    enonce: "Un même couple peut avoir deux statuts : le statut ne se lit pas sur la table (A)"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "sous_la_colonne_dedoublee_restent_quatre_lacunes"
+    status: theorem
+    nature: T
+    lean_ref: {module: "PR29_TableArites", nom: "sous_la_colonne_dedoublee_restent_quatre_lacunes", axiomes_lean: ["propext"]}
+    enonce: "Restent 4 lacunes : E⁺→D⁺, E⁺→C⁺, E⁻→C⁻, d→C⁻"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "trois_livres_sans_tiers_mal_formee"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR29_TableArites", nom: "trois_livres_sans_tiers_mal_formee", axiomes_lean: ["propext"]}
+    enonce: "Une écriture à trois livres sans tiers est mal formée (A)"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "trois_livres_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR29_TableArites", nom: "trois_livres_temoin_discriminant", axiomes_lean: []}
+    enonce: "Témoin trois livres : avec tiers, bien formée ; sans tiers, mal formée (A)"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "citer_ses_regles_n_engage_pas_les_tiers"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "citer_ses_regles_n_engage_pas_les_tiers", axiomes_lean: ["propext"]}
+    enonce: "Un D⁺ fondé sur les règles propres d'un collectif n'engage pas les tiers"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.5 Ce que la règle préserve, et ce qu'elle ne fait pas"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "classe_manquante_rend_indetermine"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "classe_manquante_rend_indetermine", axiomes_lean: ["propext"]}
+    enonce: "Règle B (fiducie) : une classe manquante rend le résultat INDETERMINE et marqué"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2bis Les formes d'affectation admises"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "droit_d_ecrire_n_est_pas_pouvoir_d_engager"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "droit_d_ecrire_n_est_pas_pouvoir_d_engager", axiomes_lean: ["propext"]}
+    enonce: "Témoin PLE Niayes : le droit d'écrire n'est pas le pouvoir d'engager"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.5 Ce que la règle préserve, et ce qu'elle ne fait pas"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_branche_B_exclut_le_capital_d_apporteur"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "la_branche_B_exclut_le_capital_d_apporteur", axiomes_lean: []}
+    enonce: "La condition du 21/09 laissait passer le capital d'apporteur ; la branche B (répartissable = VRAI) l'exclut"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2 La règle"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_completude_prime_sur_la_classe_qualifiante"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "la_completude_prime_sur_la_classe_qualifiante", axiomes_lean: []}
+    enonce: "La complétude prime sur la classe qualifiante"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2bis Les formes d'affectation admises"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_pratique_seule_marque_et_ne_qualifie_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "la_pratique_seule_marque_et_ne_qualifie_pas", axiomes_lean: ["propext"]}
+    enonce: "Un D⁺ sans source d'engagement (pratique seule) n'est pas un D⁺ de commun et porte un marqueur"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.5 Ce que la règle préserve, et ce qu'elle ne fait pas"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_qualification_agregee_n_est_pas_la_qualification_par_classe"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "la_qualification_agregee_n_est_pas_la_qualification_par_classe", axiomes_lean: []}
+    enonce: "La qualification par classe diffère de la qualification agrégée"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2bis Les formes d'affectation admises"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_non_declare_ne_qualifie_pas_et_marque"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "le_non_declare_ne_qualifie_pas_et_marque", axiomes_lean: ["propext"]}
+    enonce: "Répartissabilité NONDECLARE : l'engagement ne qualifie pas et l'écriture est marquée"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "8.5.6.2 La règle"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-9"]
+  - id: "non_determinable_rend_indetermine"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "non_determinable_rend_indetermine", axiomes_lean: ["propext"]}
+    enonce: "Répartissabilité NON_DETERMINABLE : le résultat est INDETERMINE"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2 La règle"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "qualifiant_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "qualifiant_temoin_discriminant", axiomes_lean: []}
+    enonce: "Témoins : l'asymétrie existentielle qualifie sans marqueur ; FAUX qualifie"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2 La règle"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "une_classe_non_repartissable_suffit"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR30_Communalite", nom: "une_classe_non_repartissable_suffit", axiomes_lean: ["propext", "Quot.sound"]}
+    enonce: "Règle A : une seule classe non répartissable suffit"
+    noyau_section: "10.6 Inscription d'une chose comme commun (§8.5.6) — PR-30. La forme des règles est démontrée, non leur justesse"
+    ntarch_sections: ["8.5.6.2bis Les formes d'affectation admises"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "P7_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "P7_temoin_discriminant", axiomes_lean: []}
+    enonce: "Témoin P7 : avec la dimension [AVEC], bien formée ; avec une liste vide, mal formée"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "ancree_duale_ssi"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "ancree_duale_ssi", axiomes_lean: []}
+    enonce: "Une écriture duale est ancrée si et seulement si ses deux teneurs sont distincts et chaque côté porte un ancrage déclaré (lecture de `ancreeDuale`, discriminée par les trois suivants)"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "deux_comptabilites_tenues_ancrent_une_duale"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "deux_comptabilites_tenues_ancrent_une_duale", axiomes_lean: []}
+    enonce: "Deux comptabilités tenues ancrent une écriture duale (couple banque / emprunteur de PR-35)"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_duale_exige_un_ancrage_par_cote"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "la_duale_exige_un_ancrage_par_cote", axiomes_lean: []}
+    enonce: "Un seul ancrage suffit à un côté ; il ne suffit pas à une écriture duale dont l'autre côté n'est pas ancré (un ancrage par côté ; restaté sur `ancreeDuale`, D7 du 07/10/2026)"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_lecture_exclusive_ne_porte_pas_deux_dimensions"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "la_lecture_exclusive_ne_porte_pas_deux_dimensions", axiomes_lean: []}
+    enonce: "Il existe une attribution bien formée portant [AVEC, SUR] qu'aucune valeur unique ne porte : la lecture exclusive est réfutée"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_registre_de_communalite_ancre_un_cote"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "le_registre_de_communalite_ancre_un_cote", axiomes_lean: []}
+    enonce: "Le registre de communalité ancre un côté, face à une comptabilité tenue comme face à un autre registre de communalité"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_registre_de_communalite_suffit"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "le_registre_de_communalite_suffit", axiomes_lean: []}
+    enonce: "Un registre de communalité suffit comme ancrage"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "representant_sans_dimension_mal_forme"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "representant_sans_dimension_mal_forme", axiomes_lean: ["propext"]}
+    enonce: "Porteur représentant des membres sans dimension de pouvoir : attribution mal formée"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: ["AX-4"]
+  - id: "sans_ancrage_refusee"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "sans_ancrage_refusee", axiomes_lean: ["propext"]}
+    enonce: "Une écriture T sans traduction ni inscription de communalité n'est pas ancrée : elle est refusée"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "un_seul_teneur_pas_de_duale"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR31_BonneFormationDeclarative", nom: "un_seul_teneur_pas_de_duale", axiomes_lean: []}
+    enonce: "Un seul teneur ne fait pas d'écriture duale, même ancré des deux côtés"
+    noyau_section: "10.2 Ancrage de la sous-couche T (§8.5) — PR-31 ; écriture duale élargie à deux teneurs quelconques (décision D7, 07/10/2026)"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "candidat_ssi_critere_de_sortie_et_caducite"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR32_HorizonDuMarqueur", nom: "candidat_ssi_critere_de_sortie_et_caducite", axiomes_lean: ["propext"]}
+    enonce: "Collectif et date présents, sans réfutation : CANDIDAT_NON_INSTANCIABLE ⇔ critère de sortie ∧ caducité"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-7"]
+  - id: "regime_sans_refutation_n_autorise_aucune_ecriture"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR32_HorizonDuMarqueur", nom: "regime_sans_refutation_n_autorise_aucune_ecriture", axiomes_lean: ["propext"]}
+    enonce: "Un régime sans condition de réfutation n'est pas admis et n'autorise aucune écriture"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-7"]
+  - id: "regime_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR32_HorizonDuMarqueur", nom: "regime_temoin_discriminant", axiomes_lean: []}
+    enonce: "Témoins : admis, candidat, non inscrit"
+    noyau_section: "10.1 Régimes déclarés (§8.4bis, §8.4ter) — PR-22, PR-32"
+    ntarch_sections: ["8.4ter Registre des régimes déclarés"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "P5_suit_le_critere"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR34_InstrumentHote", nom: "P5_suit_le_critere", axiomes_lean: ["propext"]}
+    enonce: "Les effets suivent le classement du critère de l'Annexe §A.15.11 (principe et exception)"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["§B.2bis Sous-couche transversale C-TRACABILITE"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "P5_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR34_InstrumentHote", nom: "P5_temoin_discriminant", axiomes_lean: ["propext"]}
+    enonce: "Témoin : un triplet complet n'a pas d'effet ; un hôte non renseigné a l'effet E3"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["§B.2bis Sous-couche transversale C-TRACABILITE"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "hote_non_declare_delibere"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR34_InstrumentHote", nom: "hote_non_declare_delibere", axiomes_lean: ["propext"]}
+    enonce: "INSTRUMENTATION avec un hôte non renseigné ou AUCUN : effet E3 (délibération)"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["§B.2bis Sous-couche transversale C-TRACABILITE"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_voie_intermediaire_ne_dispense_pas_du_triplet"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR34_InstrumentHote", nom: "la_voie_intermediaire_ne_dispense_pas_du_triplet", axiomes_lean: ["propext"]}
+    enonce: "Hôte déclaré mais triplet incomplet : un effet est toujours assigné"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["§B.2bis Sous-couche transversale C-TRACABILITE"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "sans_gouvernance_declaree_le_marqueur_suffit"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR34_InstrumentHote", nom: "sans_gouvernance_declaree_le_marqueur_suffit", axiomes_lean: ["propext"]}
+    enonce: "Triplet incomplet déclarant « aucune gouvernance imposée » : effet E4 (marqueur). Si cette déclaration est réfutée, ou si une gouvernance est imposée : E3"
+    noyau_section: "9. Couche 2 transversale — hôte, porteur représentant, répartiteur (§B.2bis ; F4 §4.2bis–4.2ter)"
+    ntarch_sections: ["§B.2bis Sous-couche transversale C-TRACABILITE"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "ecriture_duale_symetrique"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR35_EcritureDuale", nom: "ecriture_duale_symetrique", axiomes_lean: []}
+    enonce: "La relation d'écriture duale entre deux registres à teneur est symétrique"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: ["AX-15"]
+  - id: "ecriture_duale_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR35_EcritureDuale", nom: "ecriture_duale_temoin_discriminant", axiomes_lean: []}
+    enonce: "Témoin : le prêt bancaire est en écriture duale ; après un remboursement inscrit par la banque seule, il ne l'est plus"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: ["AX-15"]
+  - id: "l_etat_de_rapprochement_nomme_l_ecart"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR35_EcritureDuale", nom: "l_etat_de_rapprochement_nomme_l_ecart", axiomes_lean: []}
+    enonce: "L'état de rapprochement nomme l'écart (ici, la ligne C⁻ de 100 manquante)"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: ["AX-15"]
+  - id: "raccord_augmente_duale"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR36_RaccordAugmenteDuale", nom: "raccord_augmente_duale", axiomes_lean: ["propext", "Quot.sound"]}
+    enonce: "Registre augmenté tenu et cohérent, en écriture duale avec un registre B : toute ligne financière dont la contrepartie est le teneur de B entraîne une ligne de communalité vers B et, chez B, une ligne miroir vers A de rôle opposé. Double tenue et écriture duale se composent"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: ["8.5.0 Le domaine propre de la sous-couche T"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_ratification_ne_fonde_pas_le_registre"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR37_RegistreDuMilieu", nom: "la_ratification_ne_fonde_pas_le_registre", axiomes_lean: ["propext"]}
+    enonce: "Une déclaration seulement ratifiée (non arrêtée par les concernés) ne fonde pas un registre opposable"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: ["AX-7"]
+  - id: "le_milieu_n_ecrit_pas_son_registre"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR37_RegistreDuMilieu", nom: "le_milieu_n_ecrit_pas_son_registre", axiomes_lean: ["propext"]}
+    enonce: "Un registre de milieu bien formé n'est pas écrit par le milieu : l'écrivant diffère du titulaire"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: []
+  - id: "maintien_d_un_autre_registre_pas_d_appui"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR37_RegistreDuMilieu", nom: "maintien_d_un_autre_registre_pas_d_appui", axiomes_lean: ["propext"]}
+    enonce: "Sans maintien, le registre du milieu n'a pas d'appui ; un maintien porté par un autre registre que celui du titulaire non plus"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: ["CONV-11"]
+  - id: "sans_maintien_pas_d_appui"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR37_RegistreDuMilieu", nom: "sans_maintien_pas_d_appui", axiomes_lean: ["propext"]}
+    enonce: "Sans maintien, le registre du milieu n'a pas d'appui ; un maintien porté par un autre registre que celui du titulaire non plus"
+    noyau_section: "10.3bis Écriture duale entre teneurs (N2), raccord, registre d'un milieu (§8.5, terminologie « écriture duale ») — PR-35, PR-36, PR-37"
+    ntarch_sections: []
+    nomme_par_ntarch: false
+    rattachements: ["CONV-11"]
+  - id: "PR3_clauseSeuil_temoin_mal_forme"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "PR3_clauseSeuil_temoin_mal_forme", axiomes_lean: []}
+    enonce: "Témoin mal formé : dette attribuee déclarée « dans les temps » qui viole l'invariant strict"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "PR3_ne_choisit_pas_le_regime"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "PR3_ne_choisit_pas_le_regime", axiomes_lean: []}
+    enonce: "Il existe une dette conforme au repli daté et non conforme au strict : PR-3 ne choisit pas le régime"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "PR3_ne_departage_pas_les_seuils"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "PR3_ne_departage_pas_les_seuils", axiomes_lean: []}
+    enonce: "Les deux seuils déclarés sont admis : PR-3 ne les départage pas"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "attribuee_seuil_declare_required"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "attribuee_seuil_declare_required", axiomes_lean: []}
+    enonce: "ACT_ARCH_001, statut attribuee et seuil nonDeclare : contradiction"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "attribution_exige_seuil_et_quadruplet"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "attribution_exige_seuil_et_quadruplet", axiomes_lean: ["propext"]}
+    enonce: "Avec une mobilisation seuil-valuatif `BienFormee`, l'attribution exige le seuil déclaré **et** un statut du seuil (quadruplet), par composition avec PR-10"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "attribution_exige_un_seuil_declare"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "attribution_exige_un_seuil_declare", axiomes_lean: []}
+    enonce: "Statut attribuee ⇒ seuil ∈ {sentience, finaliteImmanente}"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "repli_a_l_instant_d_attribution_est_strict"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "repli_a_l_instant_d_attribution_est_strict", axiomes_lean: []}
+    enonce: "Le régime strict équivaut au repli dont l'échéance est l'instant d'attribution (les deux sens)"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "repli_sans_echeance_degenere"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "repli_sans_echeance_degenere", axiomes_lean: []}
+    enonce: "Sous échéance non nommée, une dette attribuee dont le seuil n'a jamais été déclaré satisfait l'invariant : le repli sans date dégénère"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "seuil_non_declare_bloque_critique"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "seuil_non_declare_bloque_critique", axiomes_lean: ["propext"]}
+    enonce: "Seuil nonDeclare ⇒ critique n'est pas valide. Conséquence : contester le seuil protège de l'attribution"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "seuil_non_declare_interdit_attribution"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "seuil_non_declare_interdit_attribution", axiomes_lean: []}
+    enonce: "Seuil nonDeclare ⇒ statut ≠ attribuee"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "stricte_est_instance_du_repli"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR3_AttributionSeuil", nom: "stricte_est_instance_du_repli", axiomes_lean: []}
+    enonce: "Le régime strict équivaut au repli dont l'échéance est l'instant d'attribution (les deux sens)"
+    noyau_section: "4. Couche 1 — invariant ACT-ARCH-001 (§7bis, §7bis-a) — PR-3"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_milieu_declenche_sans_qu_aucun_acteur_ait_declare"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR4_InventaireTriggerMilieu", nom: "le_milieu_declenche_sans_qu_aucun_acteur_ait_declare", axiomes_lean: ["propext"]}
+    enonce: "MILIEU_DEGRADE_PERSISTANT exige l'inventaire sans régime déclencheur ni déclarant"
+    noyau_section: "3. Couche 1 — machine d'états et inventaire (§4, §5.1)"
+    ntarch_sections: ["§5.1 INVENTAIRE-ASSETS-ACTIFS"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "action_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "action_temoin_discriminant", axiomes_lean: ["propext"]}
+    enonce: "L'action REVISION_CONCEPTUELLE suit le signal"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "commutatif_ne_signale_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "commutatif_ne_signale_pas", axiomes_lean: ["propext"]}
+    enonce: "Un carré qui commute ne signale jamais"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_signal_depend_de_l_ecart_declare"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "le_signal_depend_de_l_ecart_declare", axiomes_lean: ["propext"]}
+    enonce: "Même carré, même seuil : le verdict dépend de l'écart déclaré"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "non_commutation_sous_le_seuil_ne_signale_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "non_commutation_sous_le_seuil_ne_signale_pas", axiomes_lean: ["propext"]}
+    enonce: "Le signal n'est pas la non-commutativité : sous le seuil, un carré qui ne commute pas ne signale rien"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "seuil_non_declare_ne_signale_pas"
+    status: theorem
+    nature: L
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "seuil_non_declare_ne_signale_pas", axiomes_lean: []}
+    enonce: "Sans seuil déclaré : pas de signal, marqueur levé"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "signal_implique_non_commutation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "signal_implique_non_commutation", axiomes_lean: ["propext"]}
+    enonce: "Un signal levé atteste une non-commutation en ce point"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "signal_temoin_discriminant"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR50_CarreNonCommutatif", nom: "signal_temoin_discriminant", axiomes_lean: ["propext"]}
+    enonce: "Même carré, même écart : le verdict dépend du seuil déclaré"
+    noyau_section: "9bis. F3 — signal `carre_non_commutatif` (§B.3, table 3.3–3.4) — PR-50"
+    ntarch_sections: ["Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_carre_MR_ne_commute_pas"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR5_CarreMR", nom: "le_carre_MR_ne_commute_pas", axiomes_lean: ["propext"]}
+    enonce: "PR-5 (M ↔ R) : il existe un état où sensRM∘sensMR ≠ sensMR∘sensRM"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§C.3 Matrice des couplages bidirectionnels"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "le_carre_ferme_apres_l_acte"
+    status: theorem
+    nature: A
+    lean_ref: {module: "PR5_CarreMR", nom: "le_carre_ferme_apres_l_acte", axiomes_lean: ["propext"]}
+    enonce: "Avec la voix de la victime inscrite et la traçabilité de la genèse complète, l'acte `lever` désactive la précaution asymétrique"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§C.3 Matrice des couplages bidirectionnels"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "engagement_sans_miroir_n_est_pas_dette_sans_creancier"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "engagement_sans_miroir_n_est_pas_dette_sans_creancier", axiomes_lean: ["propext"]}
+    enonce: "E ≠ D ; E⁺→∅ est admis, D⁺→∅ ne l'est pas : un engagement sans miroir n'est pas une dette sans créancier"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_sonde_ne_condamne_pas_le_typage"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "la_sonde_ne_condamne_pas_le_typage", axiomes_lean: ["propext"]}
+    enonce: "Le typage à six primitives se formalise : C⁺→D⁺ et E⁺→∅ sont admis"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "la_table_melange_deux_relations"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "la_table_melange_deux_relations", axiomes_lean: ["propext"]}
+    enonce: "C⁺/D⁺ sont réciproques, alors que P⁺→e° est admis et e°→P⁺ ne l'est pas : la table mêle deux relations"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)", "8.5.2bis Instruction du don", "8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "les_resultats_de_la_sonde_tiennent_table_1809"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "les_resultats_de_la_sonde_tiennent_table_1809", axiomes_lean: ["propext"]}
+    enonce: "Ces résultats tiennent sur la table du 18/09"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "miroir_non_defini_sur_les_composites"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "miroir_non_defini_sur_les_composites", axiomes_lean: []}
+    enonce: "Il existe un typage de longueur 2 qui n'est pas simple : le miroir n'est pas défini sur les composites"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "respect_R1_declare_peut_mentir"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "respect_R1_declare_peut_mentir", axiomes_lean: ["propext"]}
+    enonce: "Un `respect_R1` déclaré peut contredire le contrôle, dans un sens comme dans l'autre"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "respect_R1_declare_peut_se_sous_estimer"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "respect_R1_declare_peut_se_sous_estimer", axiomes_lean: ["propext"]}
+    enonce: "Un `respect_R1` déclaré peut contredire le contrôle, dans un sens comme dans l'autre"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "second_couple_asymetrique"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "second_couple_asymetrique", axiomes_lean: ["propext"]}
+    enonce: "P⁻→C⁺ est admis, C⁺→P⁻ ne l'est pas"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "seul_E_plus_admet_le_vide"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "seul_E_plus_admet_le_vide", axiomes_lean: ["propext"]}
+    enonce: "Table du 08/09 : aucun typage simple autre que E⁺ n'admet le vide"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.4 La sonde P-C-E-D-e-d", "8.5.6.2 La règle"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "seul_E_plus_admet_le_vide_table_1809"
+    status: theorem
+    nature: T
+    lean_ref: {module: "Sonde_PCEDed", nom: "seul_E_plus_admet_le_vide_table_1809", axiomes_lean: ["propext"]}
+    enonce: "Table du 18/09 : E⁺ admet le vide, les neuf autres (E⁻ compris) ne l'admettent pas"
+    noyau_section: "10.5 Table des miroirs §8.5.2 — Sonde P-C-E-D-e-d et PR-29"
+    ntarch_sections: ["8.5.2 Règles de cohérence miroir (R1 raffinée)", "8.5.4 La sonde P-C-E-D-e-d", "8.5.6.2 La règle"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V10a_planetaire_force_deliberation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V10Verification", nom: "V10a_planetaire_force_deliberation", axiomes_lean: []}
+    enonce: "Sous la règle `ReglePlanetaire`, un contexte planétaire sans porteur n'a qu'un niveau valide : deliberation"
+    noyau_section: "6. Couche 1 — représentation prospective planétaire (§5.2, §8bis)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-6", "CONV-8"]
+  - id: "V10a_synthese"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V10Verification", nom: "V10a_synthese", axiomes_lean: []}
+    enonce: "Synthèse : tout niveau valide est deliberation, et critique n'est pas valide"
+    noyau_section: "6. Couche 1 — représentation prospective planétaire (§5.2, §8bis)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "Fiche 3"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V1_coherence_discrimine"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V1Verification", nom: "V1_coherence_discrimine", axiomes_lean: []}
+    enonce: "Témoin : sans cohérence, les deux règles divergent"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§B.2 Invariants de cohérence Couche 2 ↔ Partie A"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V1_commutatif"
+    status: theorem
+    nature: L
+    lean_ref: {module: "V1Verification", nom: "V1_commutatif", axiomes_lean: ["propext"]}
+    enonce: "Lecture de la précédente sur `ActeurF4Coherent`"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches", "§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V1_commute_ssi_coherence"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V1Verification", nom: "V1_commute_ssi_coherence", axiomes_lean: []}
+    enonce: "V1 (F4 ↔ F6), pour un même acteur : R-HABITABILITE-CAPABILITE = R-PUISSANCEAFFIRMATIVE ⇔ (score de l'appel > 0 ⇔ score de puissance < seuil critique)"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches", "§B.2 Invariants de cohérence Couche 2 ↔ Partie A"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "R1_preserved_under_CB1"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V2Verification", nom: "R1_preserved_under_CB1", axiomes_lean: ["propext", "Classical.choice", "Quot.sound"]}
+    enonce: "Si p₁ (à valeurs réelles) est une extension compatible de p₀ (p₁ a b = 1 ⇔ p₀ a b) et si p₀ satisfait R1 (symétrie), alors p₁ a b = 1 → p₁ b a = 1. **L'équivalence « fraction = 1 ⇔ ACTORIEL » est une hypothèse du théorème, pas sa conclusion**"
+    noyau_section: "2. Couche 1 — R1 et régime systémique (§2, §7)"
+    ntarch_sections: []
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V3_aboutit_deliberation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V3Verification", nom: "V3_aboutit_deliberation", axiomes_lean: ["propext"]}
+    enonce: "V3 (B1 ↔ B2), régime systémique : le chemin direct aboutit à deliberation"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V3_actoriel_inchange"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V3Verification", nom: "V3_actoriel_inchange", axiomes_lean: ["propext"]}
+    enonce: "Régime actoriel : la phase est inchangée par les deux chemins"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "V3_commutatif"
+    status: theorem
+    nature: L
+    lean_ref: {module: "V3Verification", nom: "V3_commutatif", axiomes_lean: ["propext"]}
+    enonce: "Chemin direct = chemin via inventaire (vrai par construction, forme 1)"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§7. Couplages et invariants inter-couches", "§8. Statut des vérifications formelles", "§B.2 Invariants de cohérence Couche 2 ↔ Partie A"]
+    nomme_par_ntarch: true
+    rattachements: ["CONV-2"]
+  - id: "cascade_deliberation_before_critique"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V4Verification", nom: "cascade_deliberation_before_critique", axiomes_lean: []}
+    enonce: "Depuis nonAttribuee, critique n'est jamais valide"
+    noyau_section: "3. Couche 1 — machine d'états et inventaire (§4, §5.1)"
+    ntarch_sections: ["§4. Machine d'états transition_valide (V4)", "§4bis.2 L'extinction n'est pas un cinquième état de §4", "§8. Statut des vérifications formelles", "Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "critique_released_by_porteur"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V4Verification", nom: "critique_released_by_porteur", axiomes_lean: ["propext"]}
+    enonce: "Avec statut_avant = enDeliberation et statut_apres = attribuee : critique est fermé avant, ouvert après, et l'inventaire est non vide. **La transition elle-même est une hypothèse**"
+    noyau_section: "3. Couche 1 — machine d'états et inventaire (§4, §5.1)"
+    ntarch_sections: ["§4. Machine d'états transition_valide (V4)", "§4bis.2 L'extinction n'est pas un cinquième état de §4", "§8. Statut des vérifications formelles", "Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "inventaire_nonempty_discrimine"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V4Verification", nom: "inventaire_nonempty_discrimine", axiomes_lean: []}
+    enonce: "Témoin : le type est habité et la liste vide en est exclue"
+    noyau_section: "3. Couche 1 — machine d'états et inventaire (§4, §5.1)"
+    ntarch_sections: ["§5.1 INVENTAIRE-ASSETS-ACTIFS"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "inventaire_nonempty_required"
+    status: theorem
+    nature: L
+    lean_ref: {module: "V4Verification", nom: "inventaire_nonempty_required", axiomes_lean: []}
+    enonce: "Un `InventaireNonVide` n'est pas vide"
+    noyau_section: "3. Couche 1 — machine d'états et inventaire (§4, §5.1)"
+    ntarch_sections: ["§5.1 INVENTAIRE-ASSETS-ACTIFS", "§8. Statut des vérifications formelles"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "nonattribuee_force_deliberation"
+    status: theorem
+    nature: A
+    lean_ref: {module: "V4Verification", nom: "nonattribuee_force_deliberation", axiomes_lean: []}
+    enonce: "Depuis nonAttribuee, le seul niveau valide est deliberation"
+    noyau_section: "3. Couche 1 — machine d'états et inventaire (§4, §5.1)"
+    ntarch_sections: ["§4. Machine d'états transition_valide (V4)", "§4bis.2 L'extinction n'est pas un cinquième état de §4", "§8. Statut des vérifications formelles", "Fiche 4"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "VJE_carre_ne_commute_pas_sans_revision"
+    status: theorem
+    nature: A
+    lean_ref: {module: "VJEVerification", nom: "VJE_carre_ne_commute_pas_sans_revision", axiomes_lean: ["propext"]}
+    enonce: "VJE (E ↔ J) : le trajet J→E puis E→J laisse l'état inchangé"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "§C.3 Matrice des couplages bidirectionnels"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "VJE_ferme_apres_revision_externe"
+    status: theorem
+    nature: A
+    lean_ref: {module: "VJEVerification", nom: "VJE_ferme_apres_revision_externe", axiomes_lean: ["propext"]}
+    enonce: "Si la révision est donnée en prémisse, la précondition vaut `true` ssi la persistance est épisodique"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "§C.3 Matrice des couplages bidirectionnels"]
+    nomme_par_ntarch: true
+    rattachements: []
+  - id: "sensJE_ne_produit_pas_la_revision"
+    status: theorem
+    nature: A
+    lean_ref: {module: "VJEVerification", nom: "sensJE_ne_produit_pas_la_revision", axiomes_lean: []}
+    enonce: "Le sens J→E ne produit pas la révision"
+    noyau_section: "7. Couplages inter-couches et inter-grammaires (§7, §B.2, §C.3)"
+    ntarch_sections: ["§8. Statut des vérifications formelles", "§C.3 Matrice des couplages bidirectionnels"]
+    nomme_par_ntarch: true
+    rattachements: []

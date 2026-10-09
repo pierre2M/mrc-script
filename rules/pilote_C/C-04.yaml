@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-04
+titre: État de rapprochement et écriture duale (calculés)
+status: theorem
+nature: A
+perimetre: noyau
+application: Toujours, après C-01 à C-03.
+enonce: 'L''état de rapprochement nomme, dans chaque sens, les lignes sans miroir chez l''autre teneur. L''écriture
+  duale est vraie si et seulement si les deux colonnes sont vides. Un écart n''est pas un défaut du dossier (D-ED-3)
+  : il est porté dans l''état de rapprochement.'
+predicat:
+- module: PR35_EcritureDuale
+  nom: etatRapprochement
+  role: definition_executee
+- module: PR35_EcritureDuale
+  nom: EcritureDuale
+  role: definition_executee
+encodage: '`etatRapprochement RA RB` et `decide (EcritureDuale RA RB)`, sur les registres encodés (identités et
+  lignes en `Nat`).'
+lean_ref:
+- module: PR35_EcritureDuale
+  nom: ecriture_duale_temoin_discriminant
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR35_EcritureDuale
+  nom: l_etat_de_rapprochement_nomme_l_ecart
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR35_EcritureDuale
+  nom: ecriture_duale_symetrique
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+axiomes:
+- AX-15
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.0 (terminologie ; PR-35)
+autres_refs:
+- Annexe méthodologique, fiche AX-15 (rapprochement banque / client)
+defect_note: 'Sans objet : propriété calculée d''un couple de registres, non condition de bonne formation.'
+refutation: Celle d'AX-15 (péremption ; un seul teneur).
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Sur le prêt bancaire, rapprochement vide ; après un remboursement inscrit par la banque seule,
+  la colonne A porte la ligne C− 100.
+affichage: Calcul fondé sur une définition discriminée par des théorèmes (PR-35). Le résultat décrit le couple de
+  registres ; il ne juge pas le dossier.
+temoins:
+  ok:
+  - ok/01_pret_bancaire
+  - ok/02_apres_remboursement
+  ko: []

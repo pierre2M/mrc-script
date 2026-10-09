@@ -1,0 +1,32 @@
+{
+  "schema_valide": true,
+  "calculs": {
+    "ancrage": {
+      "A": true,
+      "B": true
+    },
+    "teneurs_distincts": true,
+    "ecriture_duale": true,
+    "etat_rapprochement": {
+      "A_vers_B": [],
+      "B_vers_A": []
+    },
+    "concordante": true,
+    "instance_commune": true,
+    "milieu": {
+      "declaration_valide": true,
+      "maintien_structure": true,
+      "bien_forme": true,
+      "solde_maintien": 40
+    }
+  },
+  "effets": [
+    {
+      "regle": "C-09",
+      "code": "E3",
+      "marqueur": "[TRIPLET PORTEUR INCOMPLET]"
+    }
+  ],
+  "issue": "mal_forme",
+  "theoremes": []
+}

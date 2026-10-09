@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-06
+titre: Existence sans valeur
+status: theorem
+nature: A
+perimetre: hors_noyau
+application: Toujours.
+enonce: L'écriture duale porte sur l'existence et le sens des lignes, non sur leurs montants. La concordance des
+  montants est un renforcement séparé, affiché à titre d'information.
+predicat:
+- module: PR35_EcritureDuale
+  nom: Concordante
+  role: definition_executee
+encodage: '`decide (Concordante RA RB)`, affiché séparément ; n''entre dans aucun effet.'
+lean_ref:
+- module: PR35_EcritureDuale
+  nom: duale_n_implique_pas_concordante
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: — (non cité par NT-ARCH ; analogue de CONV-10, §8septies)
+autres_refs:
+- 'CONV-10 (registre augmenté : « plein » ne signifie pas « valorisé »)'
+defect_note: 'Sans objet : information.'
+refutation_note: '[LACUNE] Non déclarée.'
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Un couple en écriture duale aux montants différents reste en écriture duale ; la concordance
+  s'affiche fausse.
+affichage: Information ; jamais un motif d'effet.
+temoins:
+  ok:
+  - ok/05_montants_differents
+  ko: []

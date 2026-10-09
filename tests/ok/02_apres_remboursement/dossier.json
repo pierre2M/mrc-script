@@ -1,0 +1,78 @@
+{
+  "schema_version": "pilote-C/0.1",
+  "dossier_id": "ok-02",
+  "reference": {
+    "mrc_release": "v5.7",
+    "ntarch_sha256": "c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad",
+    "profreg_arbre": "4ef762772e34a412152f4a63f55b674eaac967df"
+  },
+  "date_controle": 2026,
+  "registres": {
+    "A": {
+      "teneur": "PILOTE:banque",
+      "ancrage": {
+        "traduction_uri_ref": "R:banque:compte-client"
+      },
+      "lignes": [
+        {
+          "id": "a1",
+          "contrepartie": "PILOTE:emprunteur",
+          "typage": "C+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        },
+        {
+          "id": "a2",
+          "contrepartie": "PILOTE:emprunteur",
+          "typage": "C-",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    },
+    "B": {
+      "teneur": "PILOTE:emprunteur",
+      "ancrage": {
+        "traduction_uri_ref": "R:emprunteur:512"
+      },
+      "lignes": [
+        {
+          "id": "b1",
+          "contrepartie": "PILOTE:banque",
+          "typage": "D+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ],
+      "communication": "nonCommunique"
+    }
+  },
+  "evidence": [
+    {
+      "id": "temoin-lean",
+      "type": "piece_autre",
+      "ref": "ProfReg, arbre 4ef762772e34a412152f4a63f55b674eaac967df (témoins Lean)",
+      "auteur": "P. M.",
+      "methode": "transcription d'un témoin Lean"
+    }
+  ],
+  "lifecycle": {
+    "proposal": {
+      "statut": "PROPOSEE",
+      "auteur": "P. M.",
+      "date": "2026-10-03",
+      "origine": "humain"
+    },
+    "formal_control": null,
+    "human_validation": null,
+    "opposability": {
+      "statut": "non_ouverte"
+    }
+  }
+}

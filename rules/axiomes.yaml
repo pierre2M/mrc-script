@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Généré par tools/gen_rules.py — NE PAS ÉDITER À LA MAIN
+# noyau  sha256 5a8c71b9cbd825a10216404318d6808cc048ba192431e79b418ac1056510ba22
+# ntarch sha256 c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+# profreg arbre  4ef762772e34a412152f4a63f55b674eaac967df
+# audit  sha256 61ebbdac64316f028cfbad2bb279536374e44d7f85b693ad093e059716540ae2
+axiomes:
+  - id: "AX-2"
+    status: axiom
+    intitule: "Dette non soldable"
+    enonce: "Les obligations nées de la dépendance à des processus non créés et non maîtrisés sont héritées collectivement, se renouvellent à chaque cycle et ne se soldent par aucun transfert, faute de créancier apte à donner quittance"
+    refutation: "Un dispositif ne connaissant que des créances exigibles qui porte durablement une telle obligation sans la convertir ni la déclarer acquittée ; ou un solde par transfert avec quittance d'un créancier apte"
+    theoremes_lies: ["une_dette_A2_ne_s_eteint_jamais", "le_quart_lemme_est_le_regime_de_A2"]
+  - id: "AX-3"
+    status: axiom
+    intitule: "Découplage du sauvetage et de la répartition"
+    enonce: "Face à un péril commun, la décision de l'action et la règle de répartition de sa charge peuvent être confiées à deux acteurs distincts, la seconde posée a priori. Sans cette séparation, l'action se bloque sur l'arbitrage entre efficacité et équité"
+    refutation: "La séparation ne produit aucune différence observable sur les décisions, les contributions ou l'acceptabilité"
+    theoremes_lies: ["sans_mandat_borne_aucune_repartition", "l_avarie_qualifiee_ne_suffit_pas", "le_repartiteur_non_nomme_ne_decouple_pas"]
+  - id: "AX-9"
+    status: axiom
+    intitule: "Conflit et permanence"
+    enonce: "Une institution dure en instituant le conflit et en revenant à son principe. Une autorité d'exception n'est compatible avec la durée que bornée dans le temps par un porteur autre que son bénéficiaire"
+    refutation: "Des institutions durables ayant supprimé le conflit, ou une durée sans corrélation avec le retour au principe. Condition empirique, non testée par le corpus"
+    theoremes_lies: ["sans_mandat_borne_aucune_repartition"]
+  - id: "AX-7"
+    status: axiom
+    intitule: "Seuil arrêté par les concernés"
+    enonce: "Il existe des dispositifs (TZCLD ; SSA/Roubaix) où les critères du seuil sont arrêtés par une instance ouverte aux concernés et composée d'eux"
+    refutation: "Péremption si les dispositifs cessent ; réfutation sur pièces. **Posé ; constat documenté** : dossier de preuve constitué (axiome de référence : `Fiche_Axiome_A7_Seuil_Arrete_Par_Les_Concernes_2026-09-11` ; examen Roubaix, pièces `TZCLD/`, `RADIS/`), qui ne vaut pas preuve Lean. **Appui doctrinal, non garantie** ; en tension déclarée avec RSO-6"
+    theoremes_lies: ["seul_debiteur_bien_forme_mais_marque", "la_ratification_ne_fonde_pas_le_registre"]
+  - id: "AX-15"
+    status: axiom
+    intitule: "Rapprochement banque / client"
+    enonce: "Au titre de l'inventaire (C. com. L.123-12 ; PCG art. 1021-3), l'entreprise et sa banque tiennent chacune le compte de l'autre : mêmes opérations, sens opposé ; l'écart est normal ; à la clôture, un état de rapprochement nomme les opérations manquantes de chaque côté"
+    refutation: "Péremption si l'obligation d'inventaire disparaît, ou si le compte de l'entreprise n'est qu'une copie du relevé. Tombe comme ancrage de N2 si les deux registres ne sont pas tenus indépendamment"
+    theoremes_lies: []
+  - id: "AX-4"
+    status: axiom
+    intitule: "Mobilisabilité"
+    enonce: "Visible, convocable, opposable et reprenable sont quatre états qui ne s'impliquent pas l'un l'autre"
+    refutation: "Un dispositif où la visibilité suffit à l'opposabilité et à la reprise"
+    theoremes_lies: []

@@ -1,0 +1,114 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-07
+titre: 'Registre du milieu : déclaration des concernés'
+status: theorem
+nature: A
+perimetre: noyau
+application: Quand un registre porte `registre_du_milieu`.
+enonce: 'Le registre d''un milieu ou d''un collectif n''est opposable dans l''écriture duale que si la déclaration
+  des concernés est arrêtée par eux (AX-7), non vide, porte un critère d''inclusion, un interprète, une date de
+  réexamen non échue, et si l''écrivant est admissible (un milieu n''écrit pas son registre). Le registre n''est
+  opposable que si, en outre, le maintien est structuré (C-08) ; sinon l''écart envers le titulaire reste inscrit.
+  Phase 1 : le registre du milieu est le côté B, et son teneur est le titulaire.'
+predicat:
+- module: PR37_RegistreDuMilieu
+  nom: declarationValide
+  role: definition_executee
+- module: PR37_RegistreDuMilieu
+  nom: registreOpposable
+  role: definition_executee
+- module: PR37_RegistreDuMilieu
+  nom: ecartEnversMilieu
+  role: definition_executee
+encodage: '`ecartEnversMilieu t RA titulaire (some R)` remplace `ecart RA RB` dans la colonne A de l''état de rapprochement.'
+lean_ref:
+- module: PR37_RegistreDuMilieu
+  nom: la_ratification_ne_fonde_pas_le_registre
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: le_milieu_n_ecrit_pas_son_registre
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: sans_declaration_pas_de_registre
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: sans_critere_d_inclusion_pas_de_registre
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: sans_interprete_pas_de_registre
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+- module: PR37_RegistreDuMilieu
+  nom: registre_de_milieu_temoin_discriminant
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR37_RegistreDuMilieu
+  nom: declaration_echue_l_ecart_revient
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR37_RegistreDuMilieu
+  nom: un_collectif_peut_tenir_son_propre_registre
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR37_RegistreDuMilieu
+  nom: sans_registre_l_ecart_reste_inscrit
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+axiomes:
+- AX-7
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.0, encadré « Raccord et entité sans comptabilité »
+autres_refs:
+- Fiche_Axiome_A7_Seuil_Arrete_Par_Les_Concernes_2026-09-11
+- 'Annexe méthodologique §A.15.11 : E6, registre du milieu non opposable (D8)'
+defect_effect:
+  code: E6
+  branche: null
+  marqueur: '[REGISTRE DU MILIEU NON OPPOSABLE]'
+  effet: 'qualification dérivée refusée : l''écriture n''est pas « en écriture duale avec le milieu » ; les lignes
+    restent inscrites, bien formées'
+defect_note: 'Hors critère (ce qu''on tire de l''écriture, non l''écriture) : E6, inscrit à l''Annexe méthodologique
+  §A.15.11 par décision du porteur D8 du 07/10/2026.'
+refutation: 'Celle d''AX-7 : la distinction arrêtée / ratifiée (fiche A7).'
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: 'Même registre : déclaration arrêtée, écart vide ; ratifiée, écart non vide ; échue (2031),
+  écart non vide.'
+affichage: Condition démontrée sur sa forme (PR-37) ; deux théorèmes du noyau, sept hors noyau.
+temoins:
+  ok:
+  - ok/03_riviere_arretee
+  ko:
+  - ko/04_riviere_ratifiee
+  - ko/05_declaration_echue
+  - ko/06_milieu_ecrivant

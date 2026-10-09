@@ -1,0 +1,62 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Généré par tools/gen_rules.py — NE PAS ÉDITER À LA MAIN
+# noyau  sha256 5a8c71b9cbd825a10216404318d6808cc048ba192431e79b418ac1056510ba22
+# ntarch sha256 c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+# profreg arbre  4ef762772e34a412152f4a63f55b674eaac967df
+# audit  sha256 61ebbdac64316f028cfbad2bb279536374e44d7f85b693ad093e059716540ae2
+conventions:
+  - id: "CONV-1"
+    status: convention
+    enonce: "La fraction actorielle est déclarée, jamais calculée : aucun foncteur de calcul n'est mobilisable dans ProfReg"
+    ancrages_profreg: ["fraction_exhibe_sa_source"]
+    rapport_aux_theoremes: "Appui de typage : `fraction_exhibe_sa_source`, borné par `…_eventuellement_vide`. Le seul candidat de calcul est réfuté comme oplax (`CB3_…`). L'inexistence générale d'un foncteur V₁→V₃ reste une lacune"
+  - id: "CONV-2"
+    status: convention
+    enonce: "La commutativité du triangle NT-G7 ↔ NT-G2 ↔ NT-ARCH et celle du carré B1↔B2 sont procédurales, et ne dispensent jamais de l'inventaire"
+    ancrages_profreg: ["V3_commutatif", "V3_aboutit_deliberation", "V3_actoriel_inchange"]
+    rapport_aux_theoremes: "`V3_commutatif` en est une lecture (forme 1), jamais un appui. Le contenu calculable est porté par `V3_aboutit_deliberation` et `V3_actoriel_inchange`"
+  - id: "CONV-3"
+    status: convention
+    enonce: "`regimeobligation` est obligatoire : aucun côté d'écriture n'est inscriptible sans lui. Le défaut entraîne le refus"
+    ancrages_profreg: []
+    rapport_aux_theoremes: "Type de toutes les quantifications sur `RegimeObligation` (§2, §7)"
+  - id: "CONV-6"
+    status: convention
+    enonce: "La représentation prospective est exigée de toute écriture qui engage au-delà de l'exercice (effet du défaut : E3). Appliquée au cas planétaire (§5.2)"
+    ancrages_profreg: ["V10a_planetaire_force_deliberation"]
+    rapport_aux_theoremes: "Ancrages PR-28 (§10.3ter). Homologue de `V10a_planetaire_force_deliberation`"
+  - id: "CONV-7"
+    status: convention
+    enonce: "Une condition de réfutation obligatoire et absente produit un marqueur, non un refus ; ce marqueur a un horizon (critère de sortie ou caducité). Appliquée au cas planétaire (§5.2)"
+    ancrages_profreg: ["regime_sans_refutation_n_autorise_aucune_ecriture", "candidat_ssi_critere_de_sortie_et_caducite"]
+    rapport_aux_theoremes: "`regime_sans_refutation_n_autorise_aucune_ecriture`, `candidat_ssi_critere_de_sortie_et_caducite` (au niveau des régimes)"
+  - id: "CONV-8"
+    status: convention
+    enonce: "Un seuil NONDECLARE appelle la délibération. Cela se déclare : l'exhaustivité du type ne l'établit pas"
+    ancrages_profreg: ["nondeclare_force_deliberation", "V10a_planetaire_force_deliberation"]
+    rapport_aux_theoremes: "`nondeclare_force_deliberation` (PR-28, moitié positive), sur le patron de `V10a_planetaire_force_deliberation`"
+  - id: "CONV-9"
+    status: convention
+    enonce: "Toute mobilisation seuil-valuatif déclare au cinquième terme ce que l'agrégat sert à établir. « Non déclaré » ne vaut pas déclaration"
+    ancrages_profreg: ["BienFormee_ne_borne_pas_le_quintuplet", "le_non_declare_ne_qualifie_pas_et_marque"]
+    rapport_aux_theoremes: "Motivée par `BienFormee_ne_borne_pas_le_quintuplet`. Patron repris par `le_non_declare_ne_qualifie_pas_et_marque`"
+  - id: "CONV-10"
+    status: convention
+    enonce: "Dans l'écriture duale, `plein` signifie que le registre reconnaît le lien, jamais qu'il le valorise"
+    ancrages_profreg: ["registre_augmente_coherent", "registre_augmente_non_equivalence", "accord_sur_l_existence_pas_sur_la_valeur"]
+    rapport_aux_theoremes: "`registre_augmente_coherent`, `registre_augmente_non_equivalence`, `accord_sur_l_existence_pas_sur_la_valeur`"
+  - id: "CONV-11"
+    status: convention
+    enonce: "Une écriture `e` dont l'apporteur figure comme créancier n'est bien formée que si le mouvement de maintien est inscrit de façon structurée et si le registre qui le porte est nommé. Depuis D-ED-16 (30/09), six éléments : porteur, contrepartie, registre, situation (solde **calculé**), horizon, critère (`MaintienCONV11`, PR-23 §6)"
+    ancrages_profreg: ["registre_augmente_coherent"]
+    rapport_aux_theoremes: "PR-23 (§10.4) la motive et la borne ; PR-37 l'applique au registre d'un milieu (§10.3bis). Seule la contrepartie est acquise par ailleurs (`registre_augmente_coherent`)"
+  - id: "CONV-14"
+    status: convention
+    enonce: "L'échelle de communalité ne s'agrège pas : axes déclarés séparément, aucun score composite"
+    ancrages_profreg: ["la_comparaison_sur_un_axe_n_est_pas_le_classement"]
+    rapport_aux_theoremes: "`la_comparaison_sur_un_axe_n_est_pas_le_classement` (PR-28)"
+  - id: "CONV-12"
+    status: convention
+    enonce: "Une obligation à deux niveaux déclare le niveau de chacune ; la non-équivalence est calculée, non déclarée"
+    ancrages_profreg: ["une_chose_deux_natures"]
+    rapport_aux_theoremes: "Patron cité pour la scission des champs de NT-G7, avec la décision 1 de 12ter (`une_chose_deux_natures`)"

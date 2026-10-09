@@ -1,0 +1,10 @@
+# Signataires autorisés (format allowed_signers d'OpenSSH ; `ssh-keygen -Y verify`).
+# Deux clés DISTINCTES (phase 3.1) :
+#   · agent-proposition : signe les propositions de l'agent, espace de noms mrc-proposition SEULEMENT ;
+#   · validateur-pm     : signe les décisions du validateur (P. M., règle D10), espace mrc-validation.
+# Les clés privées ne sont jamais dans ce dépôt. Création (une fois, sur le poste concerné) :
+#   ssh-keygen -t ed25519 -f ~/.ssh/mrc_agent      -C agent-proposition
+#   ssh-keygen -t ed25519 -f ~/.ssh/mrc_validateur -C validateur-pm
+# puis ajouter ici, une ligne par clé :
+agent-proposition namespaces="mrc-proposition" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDLbZY13iJyJHxbG7gSjb+9E8ZxoTItCX1eS5Szp1dZC
+validateur-pm namespaces="mrc-validation" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN8Tt0/nMTq4/TxBGqgPPqev4F2POcoRI5moDKnGZasf

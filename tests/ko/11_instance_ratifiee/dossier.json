@@ -1,0 +1,115 @@
+{
+  "schema_version": "pilote-C/0.1",
+  "dossier_id": "ko-11",
+  "reference": {
+    "mrc_release": "v5.7",
+    "ntarch_sha256": "c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad",
+    "profreg_arbre": "4ef762772e34a412152f4a63f55b674eaac967df"
+  },
+  "date_controle": 2026,
+  "registres": {
+    "A": {
+      "teneur": "PILOTE:entreprise",
+      "ancrage": {
+        "traduction_uri_ref": "R:entreprise:pcg"
+      },
+      "lignes": [
+        {
+          "id": "a1",
+          "contrepartie": "PILOTE:riviere",
+          "typage": "D+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    },
+    "B": {
+      "teneur": "PILOTE:riviere",
+      "ancrage": {
+        "inscription_communalite_uri_ref": {
+          "entite": "PILOTE:riviere",
+          "registre": "registre-riviere",
+          "inscription": "insc-1",
+          "triplet_porteur": {
+            "entite": "PILOTE:riviere",
+            "personne": "PILOTE:personne-collectif",
+            "role": "écrivant désigné par la déclaration des concernés"
+          }
+        }
+      },
+      "lignes": [
+        {
+          "id": "b1",
+          "contrepartie": "PILOTE:entreprise",
+          "typage": "C+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ],
+      "registre_du_milieu": {
+        "declaration": {
+          "titulaire": "PILOTE:riviere",
+          "nature": "milieu",
+          "inclusion": "critere-inclusion-1",
+          "concernes": [
+            "PILOTE:riverain-11",
+            "PILOTE:riverain-12"
+          ],
+          "ecrivant": "PILOTE:collectif-riverain",
+          "interprete": "PILOTE:hydrologue",
+          "mode": "arretee",
+          "reexamen": 2030
+        },
+        "maintien": {
+          "porteur": "PILOTE:collectif-riverain",
+          "contrepartie": "PILOTE:entreprise",
+          "registre": "PILOTE:riviere",
+          "situation": {
+            "du": 100,
+            "paye": 60
+          },
+          "horizon": 2030,
+          "critere": "critere-inclusion-1"
+        }
+      }
+    }
+  },
+  "designations_controle": [
+    {
+      "registre": "PILOTE:entreprise",
+      "instance": "PILOTE:comite-du-fleuve",
+      "mode": "ratifiee"
+    },
+    {
+      "registre": "PILOTE:riviere",
+      "instance": "PILOTE:comite-du-fleuve",
+      "mode": "arretee"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "temoin-lean",
+      "type": "piece_autre",
+      "ref": "ProfReg, arbre 4ef762772e34a412152f4a63f55b674eaac967df (témoins Lean)",
+      "auteur": "P. M.",
+      "methode": "transcription d'un témoin Lean"
+    }
+  ],
+  "lifecycle": {
+    "proposal": {
+      "statut": "PROPOSEE",
+      "auteur": "P. M.",
+      "date": "2026-10-03",
+      "origine": "humain"
+    },
+    "formal_control": null,
+    "human_validation": null,
+    "opposability": {
+      "statut": "non_ouverte"
+    }
+  }
+}

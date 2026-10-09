@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-03
+titre: 'Ligne : contrepartie nommée et typage'
+status: definition
+perimetre: noyau
+application: Chaque ligne de chaque registre.
+enonce: Une ligne nomme sa contrepartie et porte un typage parmi C+, D+, C−, D− ; le miroir d'un typage échange
+  créancier et débiteur.
+predicat:
+- module: PR35_EcritureDuale
+  nom: Ligne
+  role: definition_executee
+- module: PR20_MiroirInterActeurs
+  nom: TypageIA
+  role: definition_executee
+- module: PR20_MiroirInterActeurs
+  nom: miroirIA
+  role: definition_executee
+encodage: Contrôlé par le schéma JSON (`ligne`). Une ligne qui n'y satisfait pas n'est pas encodable en Lean.
+lean_ref: []
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: §8.5.0 ; §8.5.2 (table des miroirs)
+autres_refs:
+- 'PR-35, en-tête : Carruthers 2017, « le crédit [...] implique un prêteur et un emprunteur particuliers »'
+defect_effect:
+  code: E1
+  branche: 1
+  marqueur: null
+  effet: dossier non recevable (schéma)
+refutation_note: Définition de type ; pas de réfutation propre.
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: Le schéma refuse une ligne sans contrepartie ou au typage hors des quatre valeurs.
+affichage: Définition de type.
+temoins:
+  ok:
+  - ok/01_pret_bancaire
+  ko:
+  - ko/03_typage_hors_table

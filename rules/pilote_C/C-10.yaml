@@ -1,0 +1,70 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-10
+titre: Instance de contrôle commune (CONV-16)
+status: convention
+perimetre: nt_arch_hors_noyau
+application: Quand au moins un côté est un registre de communalité.
+enonce: Le tiers d'une écriture duale est l'instance de contrôle désignée par les deux registres, par une désignation
+  arrêtée, et qui n'est ni A ni B. À défaut, l'écart reste inscrit et n'est pas arbitrable.
+predicat:
+- module: PR43_InstanceDeControle
+  nom: instanceCommune
+  role: definition_executee
+encodage: ∃ t, `instanceCommune ds a b t`, sur les désignations déclarées.
+lean_ref:
+- module: PR43_InstanceDeControle
+  nom: sans_instance_commune_rien_n_est_arbitre
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+- module: PR43_InstanceDeControle
+  nom: la_designation_doit_etre_commune_et_arretee
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR43_InstanceDeControle
+  nom: l_instance_ne_peut_etre_partie
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+- module: PR43_InstanceDeControle
+  nom: instance_commune_temoin_discriminant
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean: []
+conventions:
+- CONV-16
+axiomes:
+- AX-16
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: c8f40040667710c6d9f706530d50107de62186ede0a1020039bbe12dc10492ad
+  section: '§8 rubrique « Conventions d''architecture rattachées » (CONV-16 : « PR-43, non cité ici ») ; §8.5.0'
+autres_refs:
+- Annexe méthodologique §A.15.12 (énoncé canonique)
+- '§A.15.11 : CONV-16 en E4'
+defect_effect:
+  code: E4
+  branche: 5
+  marqueur: '[ÉCART SANS INSTANCE DE CONTRÔLE]'
+  effet: mal formée, marquée ; l'écart n'est pas arbitrable
+refutation: CONV-16 tombe si l'on documente un dispositif d'écriture duale entre registres de communalité où l'arbitrage
+  des écarts par une instance non désignée par l'une des parties est accepté par les deux et tenu dans la durée
+  (Annexe §A.15.12).
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: 'Désignation par la rivière seule, ou ratifiée par l''entreprise : marqueur posé.'
+affichage: 'Convention hors noyau : jamais « démontrée ».'
+reserve: 'Hors noyau : NT-ARCH mobilise CONV-16 sans citer PR-43. La règle produit un marqueur, jamais un refus.'
+temoins:
+  ok:
+  - ok/03_riviere_arretee
+  ko:
+  - ko/10_instance_unilaterale
+  - ko/11_instance_ratifiee
