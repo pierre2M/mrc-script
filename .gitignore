@@ -1,0 +1,5 @@
+.DS_Store
+profreg
+.lake/
+propositions/non_soumises/
+__pycache__/

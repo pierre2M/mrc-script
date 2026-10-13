@@ -1,0 +1,6 @@
+{
+  "cycle": true,
+  "base": "ko/01_sans_ancrage_B",
+  "schema_valide": false,
+  "note": "Le schéma interdit de valider un dossier refusé au contrôle formel."
+}

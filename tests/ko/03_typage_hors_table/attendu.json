@@ -1,0 +1,13 @@
+{
+  "schema_valide": false,
+  "calculs": null,
+  "effets": [
+    {
+      "regle": "C-03",
+      "code": "E1"
+    }
+  ],
+  "issue": "refuse",
+  "theoremes": [],
+  "note": "Non recevable : le schéma refuse un typage hors de TypageIA."
+}

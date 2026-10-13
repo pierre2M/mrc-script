@@ -1,0 +1,75 @@
+{
+  "schema_version": "pilote-C/0.1",
+  "dossier_id": "cycle-03",
+  "reference": {
+    "mrc_release": "v5.7",
+    "ntarch_sha256": "60bdda938e9cd33fc0b5a5a7f5d641f08c8a1b3597f8349670a1d0e519e14567",
+    "profreg_arbre": "39285595206e664d5b6ab4b23e7d00d2f27b8033"
+  },
+  "date_controle": 2026,
+  "registres": {
+    "A": {
+      "teneur": "PILOTE:banque",
+      "ancrage": {
+        "traduction_uri_ref": "R:banque:compte-client"
+      },
+      "lignes": [
+        {
+          "id": "a1",
+          "contrepartie": "PILOTE:emprunteur",
+          "typage": "C+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    },
+    "B": {
+      "teneur": "PILOTE:emprunteur",
+      "ancrage": {},
+      "lignes": [
+        {
+          "id": "b1",
+          "contrepartie": "PILOTE:banque",
+          "typage": "D+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "temoin-lean",
+      "type": "piece_autre",
+      "ref": "ProfReg, arbre 39285595206e664d5b6ab4b23e7d00d2f27b8033 (témoins Lean)",
+      "auteur": "P. M.",
+      "methode": "transcription d'un témoin Lean"
+    }
+  ],
+  "lifecycle": {
+    "proposal": {
+      "statut": "PROPOSEE",
+      "auteur": "P. M.",
+      "date": "2026-10-03",
+      "origine": "humain"
+    },
+    "formal_control": {
+      "issue": "refuse",
+      "outil": "papier (phase 1) — tools/check_vectors.py + Lean",
+      "date": "2026-10-03"
+    },
+    "human_validation": {
+      "decision": "rejetee",
+      "validateur": "P. M., porteur du registre pilote",
+      "date": "2026-10-03",
+      "motif": "C-01 : le côté B n'a aucun ancrage (E1)."
+    },
+    "opposability": {
+      "statut": "non_ouverte"
+    }
+  }
+}

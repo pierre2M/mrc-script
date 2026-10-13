@@ -1,0 +1,97 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Généré par tools/gen_rules.py — NE PAS ÉDITER À LA MAIN
+# noyau  sha256 45ac1e2a3311dd0c5b4f9dfde465221b040b87d9f75061cdb18a1f39f04c0463
+# ntarch sha256 60bdda938e9cd33fc0b5a5a7f5d641f08c8a1b3597f8349670a1d0e519e14567
+# profreg arbre  39285595206e664d5b6ab4b23e7d00d2f27b8033
+# audit  sha256 b16e13c1bf62ca7db9a1ea2a813b9f5d88afa6facadee4fb960170907d788e23
+conventions:
+  - id: "CONV-1"
+    status: convention
+    enonce: "La fraction actorielle est déclarée, jamais calculée : aucun foncteur de calcul n'est mobilisable dans ProfReg"
+    ancrages_profreg: ["fraction_exhibe_sa_source", "fraction_exhibe_une_source_eventuellement_vide", "CB3_candidate_not_oplax_monoidal"]
+    rapport_aux_theoremes: "Appui de typage : `fraction_exhibe_sa_source`, borné par `fraction_exhibe_une_source_eventuellement_vide`. Le seul candidat de calcul est réfuté comme oplax (`CB3_candidate_not_oplax_monoidal`). L'inexistence générale d'un foncteur V₁→V₃ reste une lacune"
+  - id: "CONV-2"
+    status: convention
+    enonce: "La commutativité du triangle NT-G7 ↔ NT-G2 ↔ NT-ARCH et celle du carré B1↔B2 sont procédurales, et ne dispensent jamais de l'inventaire"
+    ancrages_profreg: ["V3_commutatif", "V3_aboutit_deliberation", "V3_actoriel_inchange", "aucune_deliberation_sans_inventaire", "carre_B1B2_commute_sur_les_chemins_admissibles", "le_chemin_direct_n_est_pas_admissible", "entrer_en_deliberation_exige_l_inventaire", "carre_temoin_discriminant", "le_carre_a_un_chemin_admissible"]
+    rapport_aux_theoremes: "`V3_commutatif` en est une lecture (forme 1), jamais un appui. Lectures à témoins croisés : `V3_aboutit_deliberation`, `V3_actoriel_inchange`. **Carré B1↔B2 appuyé par PR-51** (§7) : `aucune_deliberation_sans_inventaire`, `carre_B1B2_commute_sur_les_chemins_admissibles` (A), `le_chemin_direct_n_est_pas_admissible`, `entrer_en_deliberation_exige_l_inventaire` (L), `carre_temoin_discriminant`, `le_carre_a_un_chemin_admissible`. Le triangle reste sans ancrage"
+  - id: "CONV-3"
+    status: convention
+    enonce: "`regimeobligation` est obligatoire : aucun côté d'écriture n'est inscriptible sans lui. Le défaut entraîne le refus"
+    ancrages_profreg: []
+    rapport_aux_theoremes: "Type de toutes les quantifications sur `RegimeObligation` (§2, §7)"
+  - id: "CONV-4"
+    status: convention
+    enonce: "Le valorimètre déclare sa source : tout valorimètre ou seuil de F8 porte `source_valuemetre`, source déclarée et vérifiable (désignation, résolution, intégrité, porteur nommé) ; le DID en est une forme possible, non la forme obligatoire. Codes de l'effet du défaut proposés : E1 / E4"
+    ancrages_profreg: ["source_sans_porteur_mal_formee", "CONV4_satisfaite_sans_DID", "CONV4_ne_prescrit_aucune_forme"]
+    rapport_aux_theoremes: "`source_sans_porteur_mal_formee` (la clause du porteur mord), `CONV4_satisfaite_sans_DID`, `CONV4_ne_prescrit_aucune_forme` (PR-28, §10.3ter)"
+  - id: "CONV-5"
+    status: convention
+    enonce: "Dans le périmètre où PR-10 opère, « déclencher une règle R-\\* » vaut « régime d'usage normatif », et réciproquement ; une mobilisation sous `[VALUATION SUSPENDUE]` ne déclenche aucune règle R-\\* (convention de traduction ; effet du défaut proposé : E6)"
+    ancrages_profreg: ["suspension_ne_declenche_aucune_regle", "PR10_suspension_temoin_mal_forme"]
+    rapport_aux_theoremes: "`suspension_ne_declenche_aucune_regle` en est une lecture (la définition de `DeclencheRegle` encode la convention), avec le témoin `PR10_suspension_temoin_mal_forme`. Risque déclaré (Annexe §A.15.2) : si le set définit le déclenchement autrement, le théorème change de sens sans cesser d'être vrai"
+  - id: "CONV-6"
+    status: convention
+    enonce: "La représentation prospective est exigée de toute écriture qui engage au-delà de l'exercice (effet du défaut : E3). Appliquée au cas planétaire (§5.2)"
+    ancrages_profreg: ["CONV6_ne_vaut_pas_dans_l_exercice", "V10a_planetaire_force_deliberation"]
+    rapport_aux_theoremes: "Ancrages PR-28 (§10.3ter), dont la garde de portée `CONV6_ne_vaut_pas_dans_l_exercice`. Homologue de `V10a_planetaire_force_deliberation`"
+  - id: "CONV-7"
+    status: convention
+    enonce: "Une condition de réfutation obligatoire et absente produit un marqueur, non un refus ; ce marqueur a un horizon (critère de sortie ou caducité). Appliquée au cas planétaire (§5.2)"
+    ancrages_profreg: ["regime_sans_refutation_n_autorise_aucune_ecriture", "candidat_ssi_critere_de_sortie_et_caducite", "PR8_ne_suffit_pas"]
+    rapport_aux_theoremes: "`regime_sans_refutation_n_autorise_aucune_ecriture`, `candidat_ssi_critere_de_sortie_et_caducite` (au niveau des régimes) ; bornée par `PR8_ne_suffit_pas` (PR-16) : une condition inscrite n'est pas pour autant exerçable"
+  - id: "CONV-8"
+    status: convention
+    enonce: "Un seuil NONDECLARE appelle la délibération. Cela se déclare : l'exhaustivité du type ne l'établit pas"
+    ancrages_profreg: ["nondeclare_force_deliberation", "CONV8_temoin_discriminant", "V10a_planetaire_force_deliberation", "nonDeclare_ne_vaut_pas_permission"]
+    rapport_aux_theoremes: "`nondeclare_force_deliberation` (PR-28, moitié positive ; témoins `CONV8_temoin_discriminant`), sur le patron de `V10a_planetaire_force_deliberation` ; moitié négative, patron établi sur le régime du dispositif : `nonDeclare_ne_vaut_pas_permission` (PR-17)"
+  - id: "CONV-9"
+    status: convention
+    enonce: "Toute mobilisation seuil-valuatif déclare au cinquième terme ce que l'agrégat sert à établir. « Non déclaré » ne vaut pas déclaration"
+    ancrages_profreg: ["BienFormee_ne_borne_pas_le_quintuplet", "le_non_declare_ne_qualifie_pas_et_marque"]
+    rapport_aux_theoremes: "Motivée par `BienFormee_ne_borne_pas_le_quintuplet`. Patron repris par `le_non_declare_ne_qualifie_pas_et_marque`"
+  - id: "CONV-10"
+    status: convention
+    enonce: "Dans l'écriture duale, `plein` signifie que le registre reconnaît le lien, jamais qu'il le valorise"
+    ancrages_profreg: ["registre_augmente_coherent", "registre_augmente_non_equivalence", "accord_sur_l_existence_pas_sur_la_valeur"]
+    rapport_aux_theoremes: "`registre_augmente_coherent`, `registre_augmente_non_equivalence`, `accord_sur_l_existence_pas_sur_la_valeur`"
+  - id: "CONV-11"
+    status: convention
+    enonce: "Une écriture `e` dont l'apporteur figure comme créancier n'est bien formée que si le mouvement de maintien est inscrit de façon structurée et si le registre qui le porte est nommé. Depuis D-ED-16 (30/09), six éléments : porteur, contrepartie, registre, situation (solde **calculé**), horizon, critère (`MaintienCONV11`, PR-23 §6)"
+    ancrages_profreg: ["registre_augmente_coherent"]
+    rapport_aux_theoremes: "PR-23 (§10.4) la motive et la borne ; PR-37 l'applique au registre d'un milieu (§10.3bis). Seule la contrepartie est acquise par ailleurs (`registre_augmente_coherent`)"
+  - id: "CONV-14"
+    status: convention
+    enonce: "L'échelle de communalité ne s'agrège pas : axes déclarés séparément, aucun score composite"
+    ancrages_profreg: ["la_comparaison_sur_un_axe_n_est_pas_le_classement"]
+    rapport_aux_theoremes: "`la_comparaison_sur_un_axe_n_est_pas_le_classement` (PR-28)"
+  - id: "CONV-12"
+    status: convention
+    enonce: "Une obligation à deux niveaux déclare le niveau de chacune ; la non-équivalence est calculée, non déclarée"
+    ancrages_profreg: ["une_chose_deux_natures"]
+    rapport_aux_theoremes: "Patron cité pour la scission des champs de NT-G7, avec la décision 1 de 12ter (`une_chose_deux_natures`)"
+  - id: "CONV-16"
+    status: convention
+    enonce: "Le tiers d'une écriture duale est l'instance de contrôle commune, désignée par les deux registres par une désignation arrêtée, ni A ni B, non liée ; seule elle arbitre l'écart et peut constater la réalisation du maintien (effet du défaut : E4 `[ÉCART SANS INSTANCE DE CONTRÔLE]`)"
+    ancrages_profreg: ["seule_l_instance_commune_tranche", "l_instance_commune_tranche_toujours", "sans_instance_commune_rien_n_est_arbitre", "l_instance_liee_n_arbitre_pas", "la_designation_doit_etre_commune_et_arretee", "l_instance_ne_peut_etre_partie", "l_instance_de_controle_peut_constater", "instance_commune_temoin_discriminant"]
+    rapport_aux_theoremes: "PR-43 (§10.7) : `seule_l_instance_commune_tranche`, `l_instance_commune_tranche_toujours`, `sans_instance_commune_rien_n_est_arbitre`, `l_instance_liee_n_arbitre_pas`, `la_designation_doit_etre_commune_et_arretee`, `l_instance_ne_peut_etre_partie`, `l_instance_de_controle_peut_constater`, `instance_commune_temoin_discriminant`"
+  - id: "CONV-17"
+    status: convention
+    enonce: "Seul un constat attesté selon le protocole (sept rubriques) est porté au nom du registre devant un tiers extérieur ; à défaut, la saisine est inscrite `[SAISINE HORS PROTOCOLE]` (E6) ; nul n'est empêché de signaler en son nom"
+    ancrages_profreg: ["conv17_sans_protocole_hors_protocole", "conv17_n_interdit_pas_de_signaler", "conv17_avec_protocole_retrouve_PR44", "chaque_rubrique_compte", "la_reconstitution_suppose_un_detenteur_tiers", "la_sous_declaration_est_chiffree", "confronter_temoin_discriminant", "conforme_temoin_discriminant"]
+    rapport_aux_theoremes: "PR-45 (§10.7) : `conv17_sans_protocole_hors_protocole`, `conv17_n_interdit_pas_de_signaler`, `conv17_avec_protocole_retrouve_PR44`, `chaque_rubrique_compte`, `la_reconstitution_suppose_un_detenteur_tiers`, `la_sous_declaration_est_chiffree`, `confronter_temoin_discriminant`, `conforme_temoin_discriminant`"
+  - id: "CONV-18"
+    status: convention
+    enonce: "Tout engagement porté à un registre de chaîne est annoté (site, objet, lien déclaré) ; l'instance commune vérifie la destination et qualifie le lien, le lien retenu primant ; à défaut d'annotation `[DESTINATION NON DÉCLARÉE]` (E4), à défaut de qualification `[LIEN NON QUALIFIÉ PAR L'INSTANCE]` (E5)"
+    ancrages_profreg: ["sans_site_destination_non_declaree", "le_lien_retenu_prime", "l_instance_requalifie_le_lien", "un_verificateur_non_designe_ne_vaut_pas", "destination_infirmee_et_objet_hors_registre", "etat18_temoin_discriminant"]
+    rapport_aux_theoremes: "PR-47 (§10.7) : `sans_site_destination_non_declaree`, `le_lien_retenu_prime`, `l_instance_requalifie_le_lien`, `un_verificateur_non_designe_ne_vaut_pas`, `destination_infirmee_et_objet_hors_registre`, `etat18_temoin_discriminant`"
+  - id: "CONV-19"
+    status: convention
+    enonce: "Le signal de souffrance est un indice explicatif, jamais l'appui d'une créance ; il n'y fait pas non plus obstacle (effet du défaut proposé : E6)"
+    ancrages_profreg: ["la_souffrance_seule_ne_qualifie_aucune_creance", "la_souffrance_n_empeche_pas_la_qualification"]
+    rapport_aux_theoremes: "`la_souffrance_seule_ne_qualifie_aucune_creance` en est une lecture (la définition de `QualifieCreance` encode la convention), avec le témoin `la_souffrance_n_empeche_pas_la_qualification`"
+  - id: "CONV-20"
+    status: convention
+    enonce: "Une qualification du régime affectif n'est inscriptible qu'avec une source déclarée, le consentement collectif et un statut de protection ; sur support distribué, seul NONCOLLECTE est admis (effet du défaut : E1, branche 1bis)"
+    ancrages_profreg: ["sans_source_rien_n_est_legitime", "noncollecte_n_est_jamais_legitime", "la_source_ne_suffit_pas", "sur_support_distribue_rien_n_est_inscriptible", "inscriptible_temoin_discriminant"]
+    rapport_aux_theoremes: "Lectures `sans_source_rien_n_est_legitime`, `noncollecte_n_est_jamais_legitime` ; `la_source_ne_suffit_pas` ; composition `sur_support_distribue_rien_n_est_inscriptible` ; témoin `inscriptible_temoin_discriminant`. NONCOLLECTE désigne l'absence de toute qualification inscrite (décision du porteur, 12/10/2026)"

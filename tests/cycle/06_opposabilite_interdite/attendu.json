@@ -1,0 +1,6 @@
+{
+  "cycle": true,
+  "base": "ok/01_pret_bancaire",
+  "schema_valide": false,
+  "note": "Phase pilote : aucune sortie n'est opposable ; le schéma refuse tout autre statut que `non_ouverte`."
+}
