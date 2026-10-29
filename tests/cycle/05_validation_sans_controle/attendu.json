@@ -1,0 +1,6 @@
+{
+  "cycle": true,
+  "base": "ok/01_pret_bancaire",
+  "schema_valide": false,
+  "note": "Le schéma interdit une validation humaine sans contrôle formel."
+}

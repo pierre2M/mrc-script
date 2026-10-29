@@ -1,0 +1,115 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Banc d'essai du pilote C (phase 3.3). Les pièces restent HORS du dépôt public (décision D6, 09/10/2026 : accès
+# restreint) : citées ici par chemin et sha256, elles sont versées au dépôt privé `mrc-banc-prive`, ouvert en lecture
+# à des vérificateurs désignés (tools/constituer_prive.py, tools/verifier_prive.py).
+# statut : a_constituer · constitue (source prête) · fictif (source complétée d'une pièce fictive déclarée) ·
+#          synthetique (essai de chaîne, hors métriques).
+# Méthode (09/10/2026) : validation explicite — pas d'annotation de référence ; le validateur examine chaque
+# écriture proposée (fiche de lecture, questions à l'agent d'explicitation) et la valide, demande une précision
+# ou la refuse.
+# espace : depot (fichiers dans ce dépôt) · local (fichiers dans le dossier MRC du porteur, sous banc_pilote_C/ :
+#          source, propositions, registre, journaux ; `tools/banc.py --mrc <dossier MRC>`). Les cas locaux ne
+#          publient dans banc/SUIVI.md que leur statut, jamais leurs montants ni leurs motifs.
+cas:
+  - id: S1
+    titre: "Rivière et entreprise — essai de chaîne"
+    statut: synthetique
+    espace: depot
+    dossier_id: agent-riviere-synthetique
+    sources:
+      - chemin: tests/agent/sources/riviere_synthetique.md   # dans ce dépôt
+    reponse_enregistree: tests/agent/reponses/riviere_synthetique.txt
+
+  - id: C1
+    titre: "RATP ↔ IDFM, exercice 2025"
+    statut: constitue
+    espace: local
+    dossier_id: banc-C1-ratp-idfm-2025
+    source_cas: {chemin: banc_pilote_C/C1_RATP-IDFM_source.md, sha256: 1bb57d0fead4fde9f6e7ac671b6c3ab6de23401e9872bbb4a4f6f0079b5a2aec}
+    pieces:
+      - {chemin: PPC/RATP/registre_donnees_fiabilisees_RATP_2025.json, sha256: 234818d7d6eaf82eebccdf12d068cc117515110437d270c6a3193b57ee526134}
+    ouvert: "Registre d'IDFM absent du corpus ; lignes et typages à arrêter par l'annotateur."
+
+  - id: C2
+    titre: "La Fabrique de l'Emploi ↔ salariés, capitaux humains 2025"
+    statut: constitue
+    espace: local
+    dossier_id: banc-C2-lfde-salaries-2025
+    source_cas: {chemin: banc_pilote_C/C2_LFDE_source.md, sha256: 89327e062cb0366bcf86f886f448fe82044ad24cddd363eef9dc12a9e2f0f04a}
+    pieces:
+      - {chemin: "TZCLD/LFDE/LaFab_CARE_copil 24-06-2026.pdf", sha256: d2bf5d637e5d03ef3b18a25968763b01004319fe5ec6354a114b0ba747ec292c}
+      - {chemin: "TZCLD/LFDE/26_06 copil CARE la Fab.docx", sha256: 25aa893ec8a417b3c1e212bfcde44d0d116809ef54b8bbb26b7c58f51e799b78}
+      - {chemin: "TZCLD/LFDE/EBE EVALUATION ACTIONS.docx", sha256: 2dcacf40e728032d4eec5bc0c6a3bb83560f81f14c6a9a0c9f5c0c71b0b2d136}
+      - {chemin: "TZCLD/LFDE/CARE_bilan 2025 capitaux humains.pdf", sha256: e2f9b3494729b602a8e8a22f39a2a321e56f49669920c62f27d9485be465181d}
+    ouvert: "Aucun registre des salariés au corpus : un refus formel (C-01 ou C-02) peut être la référence."
+
+  # C2b (09/10/2026, demande du porteur) : même source que C2, plus une pièce FICTIVE (ancrage de LFDE) et la
+  # déclaration qu'aucun registre des salariés n'existe. Sert à examiner les écritures de LFDE ; ce n'est pas un fait.
+  - id: C2b
+    titre: "La Fabrique de l'Emploi ↔ salariés, ancrage de LFDE fictif, sans registre des salariés"
+    statut: fictif
+    espace: local
+    dossier_id: banc-C2b-lfde-salaries-fictif
+    source_cas: {chemin: banc_pilote_C/C2_LFDE_source.md, sha256: 89327e062cb0366bcf86f886f448fe82044ad24cddd363eef9dc12a9e2f0f04a}
+    consigne: {chemin: banc_pilote_C/C2b_ecriture_fictive.md, sha256: 127545d2c6125353c42e696ef45db146d471756886035c8c2313bf0df1341e9a}
+    pieces:
+      - {chemin: "TZCLD/LFDE/LaFab_CARE_copil 24-06-2026.pdf", sha256: d2bf5d637e5d03ef3b18a25968763b01004319fe5ec6354a114b0ba747ec292c}
+      - {chemin: "TZCLD/LFDE/26_06 copil CARE la Fab.docx", sha256: 25aa893ec8a417b3c1e212bfcde44d0d116809ef54b8bbb26b7c58f51e799b78}
+      - {chemin: "TZCLD/LFDE/EBE EVALUATION ACTIONS.docx", sha256: 2dcacf40e728032d4eec5bc0c6a3bb83560f81f14c6a9a0c9f5c0c71b0b2d136}
+      - {chemin: "TZCLD/LFDE/CARE_bilan 2025 capitaux humains.pdf", sha256: e2f9b3494729b602a8e8a22f39a2a321e56f49669920c62f27d9485be465181d}
+    ouvert: "Ancrage de LFDE fictif ; côté salariés sans registre, donc sans ancrage : refus C-01 attendu (D9), écritures de LFDE sans miroir."
+
+  # C2c (09/10/2026, déclarations du porteur) : registre d'attente des salariés — registre d'un collectif humain
+  # (PR-37) dont la déclaration n'est pas arrêtée ; il porte le reflet des écritures de LFDE en attendant que les
+  # collectifs de salariés en prennent connaissance et décident de sa gouvernance. Aucune règle modifiée.
+  - id: C2c
+    titre: "La Fabrique de l'Emploi ↔ registre d'attente des salariés"
+    statut: constitue
+    espace: local
+    dossier_id: banc-C2c-lfde-salaries-registre-attente
+    source_cas: {chemin: banc_pilote_C/C2_LFDE_source.md, sha256: 89327e062cb0366bcf86f886f448fe82044ad24cddd363eef9dc12a9e2f0f04a}
+    consigne: {chemin: banc_pilote_C/C2c_registre_attente.md, sha256: 5d6eb2b0770436f21c6d885fad9f831d48f5e5656f7d726cf72ad25f652e9567}
+    pieces:
+      - {chemin: "TZCLD/LFDE/LaFab_CARE_copil 24-06-2026.pdf", sha256: d2bf5d637e5d03ef3b18a25968763b01004319fe5ec6354a114b0ba747ec292c}
+      - {chemin: "TZCLD/LFDE/26_06 copil CARE la Fab.docx", sha256: 25aa893ec8a417b3c1e212bfcde44d0d116809ef54b8bbb26b7c58f51e799b78}
+      - {chemin: "TZCLD/LFDE/EBE EVALUATION ACTIONS.docx", sha256: 2dcacf40e728032d4eec5bc0c6a3bb83560f81f14c6a9a0c9f5c0c71b0b2d136}
+      - {chemin: "TZCLD/LFDE/CARE_bilan 2025 capitaux humains.pdf", sha256: e2f9b3494729b602a8e8a22f39a2a321e56f49669920c62f27d9485be465181d}
+    ouvert: "Déclaration des salariés non arrêtée (C-07, E6) et instance de contrôle non désignée (C-10, E4) attendues : dossier incomplet, marqué, non opposable."
+
+  # C3 découpé le 09/10/2026 (déclarations du porteur, pièce T4) : un registre du sol articulé à deux
+  # registres tenus ; un dossier par couple de registres, même source, consigne de cadrage par dossier.
+  - id: C3a
+    titre: "MEL ↔ registre du sol de la friche Nollet (Trichon)"
+    statut: constitue
+    espace: local
+    dossier_id: banc-C3a-mel-sol-trichon
+    source_cas: {chemin: banc_pilote_C/C3_Trichon_source.md, sha256: b6d8bd9b5d0e9e87120bddf0fa1e36fbf1e29dcbe4dfc1e5fa8b7d2336a62ab6}
+    consigne: {chemin: banc_pilote_C/C3a_consigne.md, sha256: 909861f19131edbb62a2f14a419a90283f2cb837ce74ffc26384d6de34253a68}
+    pieces:
+      - {chemin: "Ferme du Trichon/Synthèse travaux Clément Boyer_par Jamila Bentrar_MEL.pdf", sha256: fc4a4adb7b27f25663fb811789616975125977038269a70b31e6078ef44f71b4}
+      - {chemin: "Ferme du Trichon/La nouvelle Charte du Trichon est signée.docx", sha256: 0542719b327fbc9428075b76d2597dc54a869796fce7d231f9f6f3301d49ff56}
+    ouvert: "Registre du sol à créer ; déclaration des concernés et désignation de l'instance appuyées sur les déclarations du porteur."
+
+  - id: C3b
+    titre: "CPU ↔ registre du sol de la friche Nollet (Trichon)"
+    statut: constitue
+    espace: local
+    dossier_id: banc-C3b-cpu-sol-trichon
+    source_cas: {chemin: banc_pilote_C/C3_Trichon_source.md, sha256: b6d8bd9b5d0e9e87120bddf0fa1e36fbf1e29dcbe4dfc1e5fa8b7d2336a62ab6}
+    consigne: {chemin: banc_pilote_C/C3b_consigne.md, sha256: 15716d225b18d225e33087e06eca58147a7ce530d101525cfd7ff66da932bea5}
+    pieces:
+      - {chemin: "Ferme du Trichon/Synthèse travaux Clément Boyer_par Jamila Bentrar_MEL.pdf", sha256: fc4a4adb7b27f25663fb811789616975125977038269a70b31e6078ef44f71b4}
+      - {chemin: "Ferme du Trichon/La nouvelle Charte du Trichon est signée.docx", sha256: 0542719b327fbc9428075b76d2597dc54a869796fce7d231f9f6f3301d49ff56}
+    ouvert: "Idem C3a ; identifiant légal du CPU absent des pièces."
+
+  - id: C3c
+    titre: "MEL ↔ CPU, financement de la reconstitution du sol (Trichon)"
+    statut: constitue
+    espace: local
+    dossier_id: banc-C3c-mel-cpu-trichon
+    source_cas: {chemin: banc_pilote_C/C3_Trichon_source.md, sha256: b6d8bd9b5d0e9e87120bddf0fa1e36fbf1e29dcbe4dfc1e5fa8b7d2336a62ab6}
+    consigne: {chemin: banc_pilote_C/C3c_consigne.md, sha256: a21239158c0dc22c6095759cd924f79145461246e584d7bd8012dc3d526264d0}
+    pieces:
+      - {chemin: "Ferme du Trichon/Synthèse travaux Clément Boyer_par Jamila Bentrar_MEL.pdf", sha256: fc4a4adb7b27f25663fb811789616975125977038269a70b31e6078ef44f71b4}
+      - {chemin: "Ferme du Trichon/La nouvelle Charte du Trichon est signée.docx", sha256: 0542719b327fbc9428075b76d2597dc54a869796fce7d231f9f6f3301d49ff56}
+    ouvert: "Comptes de la MEL et du CPU absents du corpus."
