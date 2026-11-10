@@ -1,0 +1,30 @@
+{
+  "schema_valide": true,
+  "calculs": {
+    "ancrage": {
+      "A": true,
+      "B": true
+    },
+    "teneurs_distincts": true,
+    "ecriture_duale": false,
+    "etat_rapprochement": {
+      "A_vers_B": [
+        "a2"
+      ],
+      "B_vers_A": []
+    },
+    "concordante": false,
+    "instance_commune": null,
+    "statut_ecart": {
+      "a2": "nonVerifiable"
+    }
+  },
+  "effets": [],
+  "issue": "conforme",
+  "theoremes": [
+    "PR35.l_ecriture_duale_peut_echouer",
+    "PR35.l_etat_de_rapprochement_nomme_l_ecart",
+    "PR40.non_verifiable_n_est_pas_constate"
+  ],
+  "note": "L'écart n'est pas un défaut du dossier (D-ED-3) : contrôle conforme, état de rapprochement non vide."
+}

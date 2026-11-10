@@ -1,0 +1,88 @@
+# SPDX-License-Identifier: CC-BY-NC-SA-4.0
+# Pilote C — fiche de règle (phase 1.2). Source : NT-ARCH v5.7 et ProfReg (empreinte et arbre : corpus/_MANIFESTE_v5.7.md).
+id: C-10
+titre: Instance de contrôle commune (CONV-16)
+status: convention
+perimetre: noyau
+application: Quand au moins un côté est un registre de communalité.
+enonce: Le tiers d'une écriture duale est l'instance de contrôle désignée par les deux registres, par une désignation
+  arrêtée ; sa composition est inclusive (elle peut compter A et B). Seule sa formation d'arbitrage — les membres ni A
+  ni B, non liés — tranche un écart. À défaut d'instance commune ou de formation, l'écart reste inscrit et n'est pas
+  arbitrable (CONV-16 révisée, décision n° 62 du 10/11/2026).
+predicat:
+- module: PR43_InstanceDeControle
+  nom: instanceCommune
+  role: definition_executee
+encodage: '∃ t, `instanceCommune ds a b t`, sur les désignations déclarées. Le pilote C évalue le cas d''une instance réduite à une seule entité, qui est sa propre formation d''arbitrage (PR-60, `pr43_est_le_cas_d_une_instance_a_un_seul_membre`) ; la composition d''une instance inclusive n''est pas encore représentée dans le schéma (`designations_controle`).'
+lean_ref:
+- module: PR43_InstanceDeControle
+  nom: sans_instance_commune_rien_n_est_arbitre
+  role: theoreme
+  nature: L
+  noyau: true
+  axiomes_lean:
+  - propext
+- module: PR43_InstanceDeControle
+  nom: la_designation_doit_etre_commune_et_arretee
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR43_InstanceDeControle
+  nom: l_instance_ne_peut_etre_partie
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR43_InstanceDeControle
+  nom: instance_commune_temoin_discriminant
+  role: theoreme
+  nature: A
+  noyau: true
+  axiomes_lean: []
+- module: PR60_InstanceInclusiveEtFormationDArbitrage
+  nom: pr43_est_le_cas_d_une_instance_a_un_seul_membre
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+- module: PR60_InstanceInclusiveEtFormationDArbitrage
+  nom: la_formation_ne_compte_pas_les_parties
+  role: theoreme
+  nature: A
+  noyau: false
+  axiomes_lean:
+  - propext
+  - Quot.sound
+conventions:
+- CONV-16
+axiomes:
+- AX-16
+nt_arch_ref:
+  fichier: MRC_v5.7_NT-ARCH_Architecture_Couches0-3.md
+  sha256: 1f365c94c83f5bc70d8eac8c1aa7c7bd77efcf564c26d55c1cbac383d54f839f
+  section: '§8 rubrique « Conventions d''architecture rattachées » (CONV-16, ancrages PR-60 et PR-43) ; §8.5 (terminologie) ; §8.5.0'
+autres_refs:
+- Annexe méthodologique §A.15.12 (énoncé canonique)
+- '§A.15.11 : CONV-16 en E4'
+defect_effect:
+  code: E4
+  branche: 5
+  marqueur: '[ÉCART SANS INSTANCE DE CONTRÔLE]'
+  effet: mal formée, marquée ; l'écart n'est pas arbitrable
+refutation: (1) CONV-16 tombe si l'on documente un dispositif d'écriture duale entre registres de communalité où
+  l'arbitrage des écarts par une instance non désignée par l'une des parties est accepté par les deux et tenu dans la
+  durée. (2) La séparation instance / formation tombe si la seule présence des parties dans l'instance, récusées pour
+  l'arbitrage, ruine la légitimité des arbitrages rendus par les autres membres (Annexe §A.15.12).
+owner: P. M., porteur du registre pilote
+horizon: institutionnel, révisable (NT-ARCH §8.5.0)
+critere_verification: 'Désignation par la rivière seule, ou ratifiée par l''entreprise : marqueur posé.'
+affichage: 'Convention, ancrages PR-43 au noyau : forme établie, jamais « démontrée ».'
+reserve: 'Hors noyau : NT-ARCH mobilise CONV-16 sans citer PR-43. La règle produit un marqueur, jamais un refus. [LACUNE] Le schéma ne porte pas encore la composition de l''instance ni les liens déclarés de ses membres : l''instance inclusive (PR-60) n''est pas contrôlable par le pilote, ni son marqueur [ÉCART SANS FORMATION D''ARBITRAGE].'
+temoins:
+  ok:
+  - ok/03_riviere_arretee
+  ko:
+  - ko/10_instance_unilaterale
+  - ko/11_instance_ratifiee

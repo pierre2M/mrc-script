@@ -1,0 +1,34 @@
+{
+  "schema_valide": true,
+  "calculs": {
+    "ancrage": {
+      "A": true,
+      "B": true
+    },
+    "teneurs_distincts": true,
+    "ecriture_duale": true,
+    "etat_rapprochement": {
+      "A_vers_B": [],
+      "B_vers_A": []
+    },
+    "concordante": true,
+    "instance_commune": false,
+    "milieu": {
+      "declaration_valide": true,
+      "maintien_structure": true,
+      "bien_forme": true,
+      "solde_maintien": 40
+    }
+  },
+  "effets": [
+    {
+      "regle": "C-10",
+      "code": "E4",
+      "marqueur": "[ÉCART SANS INSTANCE DE CONTRÔLE]"
+    }
+  ],
+  "issue": "mal_forme",
+  "theoremes": [
+    "PR43.la_designation_doit_etre_commune_et_arretee"
+  ]
+}

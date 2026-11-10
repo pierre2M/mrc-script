@@ -1,0 +1,68 @@
+{
+  "schema_version": "pilote-C/0.1",
+  "dossier_id": "ok-01",
+  "reference": {
+    "mrc_release": "v5.7",
+    "ntarch_sha256": "1f365c94c83f5bc70d8eac8c1aa7c7bd77efcf564c26d55c1cbac383d54f839f",
+    "profreg_arbre": "48ab6c29f011048c12c1558f9413a3a064345a22"
+  },
+  "date_controle": 2026,
+  "registres": {
+    "A": {
+      "teneur": "PILOTE:banque",
+      "ancrage": {
+        "traduction_uri_ref": "R:banque:compte-client"
+      },
+      "lignes": [
+        {
+          "id": "a1",
+          "contrepartie": "PILOTE:emprunteur",
+          "typage": "C+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    },
+    "B": {
+      "teneur": "PILOTE:emprunteur",
+      "ancrage": {
+        "traduction_uri_ref": "R:emprunteur:512"
+      },
+      "lignes": [
+        {
+          "id": "b1",
+          "contrepartie": "PILOTE:banque",
+          "typage": "D+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    }
+  },
+  "evidence": [
+    {
+      "id": "temoin-lean",
+      "type": "piece_autre",
+      "ref": "ProfReg, arbre 68c98f774af444d541be298224b02e2c3d75c074 (témoins Lean)",
+      "auteur": "P. M.",
+      "methode": "transcription d'un témoin Lean"
+    }
+  ],
+  "lifecycle": {
+    "proposal": {
+      "statut": "PROPOSEE",
+      "auteur": "P. M.",
+      "date": "2026-10-03",
+      "origine": "humain"
+    },
+    "formal_control": null,
+    "human_validation": null,
+    "opposability": {
+      "statut": "non_ouverte"
+    }
+  }
+}

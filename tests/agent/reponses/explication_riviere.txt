@@ -1,0 +1,3 @@
+L'écriture `a1` dit que, dans le registre de l'entreprise, une dette naît envers la rivière : 100 EUR au titre de prélèvements d'eau (pièce P1). Son reflet est l'écriture `b1` du registre de la rivière, une créance née de même montant (pièce P2). Le contrôle formel (C-04) trouve les deux : l'écriture duale est établie.
+
+Ce que le contrôle ne dit pas : que les prélèvements ont eu lieu, ni que 100 EUR est le bon montant. Pour le vérifier, la question est à poser au proposant (quelle mesure fonde ce montant ?) ou à l'auteur de la pièce P1.

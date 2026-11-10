@@ -1,0 +1,27 @@
+{
+  "schema_valide": true,
+  "calculs": {
+    "ancrage": {
+      "A": true,
+      "B": false
+    },
+    "teneurs_distincts": true,
+    "ecriture_duale": true,
+    "etat_rapprochement": {
+      "A_vers_B": [],
+      "B_vers_A": []
+    },
+    "concordante": true,
+    "instance_commune": null
+  },
+  "effets": [
+    {
+      "regle": "C-01",
+      "code": "E1"
+    }
+  ],
+  "issue": "refuse",
+  "theoremes": [
+    "PR31.sans_ancrage_refusee"
+  ]
+}
