@@ -1,0 +1,128 @@
+Voici la proposition demandée.
+
+```json
+{
+  "dossier_id": "agent-riviere-synthetique",
+  "date_controle": 2026,
+  "registres": {
+    "A": {
+      "teneur": "PILOTE:entreprise",
+      "ancrage": {
+        "traduction_uri_ref": "R:entreprise:pcg"
+      },
+      "lignes": [
+        {
+          "id": "a1",
+          "contrepartie": "PILOTE:riviere",
+          "typage": "D+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ]
+    },
+    "B": {
+      "teneur": "PILOTE:riviere",
+      "ancrage": {
+        "inscription_communalite_uri_ref": {
+          "entite": "PILOTE:riviere",
+          "registre": "registre-riviere",
+          "inscription": "insc-1",
+          "triplet_porteur": {
+            "entite": "PILOTE:riviere",
+            "personne": "PILOTE:personne-collectif",
+            "role": "écrivant désigné par la déclaration des concernés"
+          }
+        }
+      },
+      "lignes": [
+        {
+          "id": "b1",
+          "contrepartie": "PILOTE:entreprise",
+          "typage": "C+",
+          "montant": {
+            "valeur": 100,
+            "valorimetre": "EUR"
+          }
+        }
+      ],
+      "registre_du_milieu": {
+        "declaration": {
+          "titulaire": "PILOTE:riviere",
+          "nature": "milieu",
+          "inclusion": "critere-inclusion-1",
+          "concernes": [
+            "PILOTE:riverain-11",
+            "PILOTE:riverain-12"
+          ],
+          "ecrivant": "PILOTE:collectif-riverain",
+          "interprete": "PILOTE:hydrologue",
+          "mode": "arretee",
+          "reexamen": 2030
+        },
+        "maintien": {
+          "porteur": "PILOTE:collectif-riverain",
+          "contrepartie": "PILOTE:entreprise",
+          "registre": "PILOTE:riviere",
+          "situation": {
+            "du": 100,
+            "paye": 60
+          },
+          "horizon": 2030,
+          "critere": "critere-inclusion-1"
+        }
+      }
+    }
+  },
+  "designations_controle": [
+    {
+      "registre": "PILOTE:entreprise",
+      "instance": "PILOTE:comite-du-fleuve",
+      "mode": "arretee"
+    },
+    {
+      "registre": "PILOTE:riviere",
+      "instance": "PILOTE:comite-du-fleuve",
+      "mode": "arretee"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "P1",
+      "type": "extrait_registre",
+      "ref": "Source synthétique, pièce P1",
+      "auteur": "porteur (synthétique)",
+      "methode": "transcription de la source"
+    },
+    {
+      "id": "P2",
+      "type": "extrait_registre",
+      "ref": "Source synthétique, pièce P2",
+      "auteur": "porteur (synthétique)",
+      "methode": "transcription de la source"
+    },
+    {
+      "id": "P3",
+      "type": "declaration_concernes",
+      "ref": "Source synthétique, pièce P3",
+      "auteur": "porteur (synthétique)",
+      "methode": "transcription de la source"
+    },
+    {
+      "id": "P4",
+      "type": "piece_autre",
+      "ref": "Source synthétique, pièce P4",
+      "auteur": "porteur (synthétique)",
+      "methode": "transcription de la source"
+    },
+    {
+      "id": "P5",
+      "type": "designation",
+      "ref": "Source synthétique, pièce P5",
+      "auteur": "porteur (synthétique)",
+      "methode": "transcription de la source"
+    }
+  ]
+}
+```

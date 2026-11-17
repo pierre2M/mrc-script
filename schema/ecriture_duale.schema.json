@@ -1,0 +1,790 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/pierre2M/mrc-script/schema/ecriture_duale.schema.json",
+  "title": "MRC v5.7 — pilote C : dossier d'écriture duale entre teneurs",
+  "description": "SPDX-License-Identifier: CC-BY-NC-SA-4.0. Dossier soumis au registre pilote : deux registres à teneur et leurs lignes réciproques (NT-ARCH §8.5.0 ; PR-35). L'écriture duale est une PROPRIÉTÉ du couple de registres, non une condition de bonne formation d'une inscription (D-ED-3) : un écart n'est pas un défaut du dossier, il est porté dans l'état de rapprochement. Les champs calculés (état de rapprochement, solde du maintien, écriture duale, marqueurs) ne figurent pas ici : ils se calculent, ils ne se déclarent pas.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dossier_id",
+    "reference",
+    "date_controle",
+    "registres",
+    "evidence",
+    "lifecycle"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "pilote-C/0.1"
+    },
+    "dossier_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "reference": {
+      "description": "Base de conformité : empreinte de NT-ARCH (manifeste du set) et arbre git de ProfReg.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mrc_release",
+        "ntarch_sha256",
+        "profreg_arbre"
+      ],
+      "properties": {
+        "mrc_release": {
+          "const": "v5.7"
+        },
+        "ntarch_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "profreg_arbre": {
+          "description": "Arbre git de l'état de ProfReg contre lequel le dossier est contrôlé (identique en local et dans l'unique commit publié).",
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "date_controle": {
+      "description": "Année de contrôle : PR-37 compare la date de réexamen d'une déclaration à cette année (`enVigueur`). Aucune autre date n'est modélisée (PR-35, reste de traduction 4).",
+      "type": "integer",
+      "minimum": 1900,
+      "maximum": 9999
+    },
+    "registres": {
+      "description": "Exactement deux registres, A et B. Les teneurs doivent être distincts (règle C-02).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "B"
+      ],
+      "properties": {
+        "A": {
+          "$ref": "#/$defs/registre"
+        },
+        "B": {
+          "$ref": "#/$defs/registre"
+        }
+      }
+    },
+    "designations_controle": {
+      "description": "CONV-16 (hors noyau ; PR-43) : chaque registre désigne son instance de contrôle. Le tiers d'une écriture duale est l'instance désignée par les deux registres, ni A ni B, par une désignation arrêtée.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "registre",
+          "instance",
+          "mode"
+        ],
+        "properties": {
+          "registre": {
+            "$ref": "#/$defs/entite"
+          },
+          "instance": {
+            "$ref": "#/$defs/entite"
+          },
+          "mode": {
+            "$ref": "#/$defs/mode_declaration"
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence_refs"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "description": "Pièces du dossier. Distinct de `rule_trace` : une pièce atteste un fait déclaré ; elle n'est jamais un résultat de contrôle.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "ref",
+          "auteur",
+          "methode"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._-]+$"
+          },
+          "type": {
+            "enum": [
+              "releve",
+              "extrait_registre",
+              "declaration_concernes",
+              "deliberation",
+              "designation",
+              "piece_autre"
+            ]
+          },
+          "ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "auteur": {
+            "type": "string",
+            "minLength": 1
+          },
+          "methode": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "rule_trace": {
+      "description": "Rempli par le contrôle formel seulement (phase 2 : `mrc-check`). Une entrée par règle évaluée. Distinct de `evidence`.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "regle",
+          "resultat"
+        ],
+        "properties": {
+          "regle": {
+            "type": "string",
+            "pattern": "^C-[0-9]{2}$"
+          },
+          "resultat": {
+            "enum": [
+              "satisfaite",
+              "non_satisfaite",
+              "sans_objet"
+            ]
+          },
+          "effet": {
+            "enum": [
+              "E1",
+              "E2",
+              "E3",
+              "E4",
+              "E5",
+              "E6",
+              "E7",
+              "E0"
+            ]
+          },
+          "marqueur": {
+            "type": "string"
+          },
+          "lean_ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lifecycle": {
+      "$ref": "#/$defs/lifecycle"
+    }
+  },
+  "$defs": {
+    "entite": {
+      "description": "Identifiant stable : LEI, SIREN, identifiant d'instance de gestion (OLGE/PLE/CLE) ou DID (NT-ARCH §8.5.0). Le gabarit `did:registre:communalite:` n'est pas arrêté (§8.5.0, RESTE À FAIRE).",
+      "type": "string",
+      "pattern": "^(LEI:[A-Z0-9]{20}|SIREN:[0-9]{9}|INSTANCE:[A-Za-z0-9._-]+|did:[a-z0-9]+:[A-Za-z0-9._:%-]+|PILOTE:[A-Za-z0-9._-]+)$"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mode_declaration": {
+      "description": "PR-37 `ModeDeclaration` : arrêtée par les concernés (AX-7), ratifiée, ou non déclarée (refuse, n'autorise pas).",
+      "enum": [
+        "arretee",
+        "ratifiee",
+        "nonDeclare"
+      ]
+    },
+    "registre": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "teneur",
+        "ancrage",
+        "lignes"
+      ],
+      "properties": {
+        "teneur": {
+          "$ref": "#/$defs/entite"
+        },
+        "ancrage": {
+          "$ref": "#/$defs/ancrage"
+        },
+        "lignes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ligne"
+          }
+        },
+        "communication": {
+          "description": "PR-40 (hors noyau) : ce registre a-t-il été communiqué à l'autre teneur ? Qualifie l'écart (constaté, non vérifiable, refusé, contesté) ; ne le change pas.",
+          "enum": [
+            "extraitCommunique",
+            "nonCommunique",
+            "refuse"
+          ]
+        },
+        "registre_du_milieu": {
+          "$ref": "#/$defs/registre_du_milieu"
+        }
+      }
+    },
+    "ancrage": {
+      "description": "NT-ARCH §8.5.0 : toute écriture T porte au moins un ancrage ; écriture duale : un par côté (PR-31). Absent ou vide : refus (E1).",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "traduction_uri_ref": {
+          "description": "Comptabilité tenue : pointeur vers la traduction R, qui porte un `regime_comptable` admis (§8.4).",
+          "type": "string",
+          "minLength": 1
+        },
+        "inscription_communalite_uri_ref": {
+          "description": "Registre de communalité : clé composite entité × registre × inscription, et triplet porteur (Annexe H §H.1).",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entite",
+            "registre",
+            "inscription"
+          ],
+          "properties": {
+            "entite": {
+              "$ref": "#/$defs/entite"
+            },
+            "registre": {
+              "type": "string",
+              "minLength": 1
+            },
+            "inscription": {
+              "type": "string",
+              "minLength": 1
+            },
+            "triplet_porteur": {
+              "description": "Entité, personne qui inscrit, rôle qui l'habilite (patron vLEI). Incomplet : E3 (Annexe §A.15.11).",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "entite": {
+                  "$ref": "#/$defs/entite"
+                },
+                "personne": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ligne": {
+      "description": "PR-35 `Ligne` : la contrepartie est NOMMÉE ; typage parmi les quatre de PR-20 (`TypageIA`) ; montant dans le valorimètre du registre.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "contrepartie",
+        "typage",
+        "montant"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._-]+$"
+        },
+        "contrepartie": {
+          "$ref": "#/$defs/entite"
+        },
+        "typage": {
+          "enum": [
+            "C+",
+            "D+",
+            "C-",
+            "D-"
+          ]
+        },
+        "montant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "valeur",
+            "valorimetre"
+          ],
+          "properties": {
+            "valeur": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "valorimetre": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "libelle": {
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence_refs"
+        }
+      }
+    },
+    "registre_du_milieu": {
+      "description": "PR-37 : quand ce registre est celui d'un milieu ou d'un collectif humain. Le registre est opposable seulement si la déclaration des concernés est valide à la date de contrôle et si le maintien nomme ce registre (CONV-11). Sinon l'écart envers le titulaire reste inscrit.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaration",
+        "maintien"
+      ],
+      "properties": {
+        "declaration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "titulaire",
+            "nature",
+            "inclusion",
+            "concernes",
+            "ecrivant",
+            "interprete",
+            "mode",
+            "reexamen"
+          ],
+          "properties": {
+            "titulaire": {
+              "$ref": "#/$defs/entite"
+            },
+            "nature": {
+              "enum": [
+                "milieu",
+                "collectifHumain"
+              ]
+            },
+            "inclusion": {
+              "description": "Règle qui dit qui est concerné. `null` : liste close sans règle — refusée.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "concernes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/entite"
+              }
+            },
+            "ecrivant": {
+              "$ref": "#/$defs/entite"
+            },
+            "interprete": {
+              "description": "Qui décrit l'état à maintenir. `null` : refusé.",
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/entite"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "mode": {
+              "$ref": "#/$defs/mode_declaration"
+            },
+            "reexamen": {
+              "description": "Année limite de réexamen. `null` : aucun réexamen prévu — refusé.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "evidence": {
+              "$ref": "#/$defs/evidence_refs"
+            }
+          }
+        },
+        "maintien": {
+          "description": "CONV-11 : maintien structuré (MaintienCONV11). Le solde n'est pas un champ : il est calculé (dû − payé, tronqué à 0). `null` : maintien non structuré.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "porteur",
+                "contrepartie",
+                "registre",
+                "situation",
+                "horizon",
+                "critere"
+              ],
+              "properties": {
+                "porteur": {
+                  "$ref": "#/$defs/entite"
+                },
+                "contrepartie": {
+                  "$ref": "#/$defs/entite"
+                },
+                "registre": {
+                  "description": "Le registre qui porte le maintien, désigné par son titulaire.",
+                  "$ref": "#/$defs/entite"
+                },
+                "situation": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "du",
+                    "paye"
+                  ],
+                  "properties": {
+                    "du": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "paye": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "horizon": {
+                  "type": "integer"
+                },
+                "critere": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "lifecycle": {
+      "description": "Quatre statuts séparés. Aucun ne se déduit d'un autre : un contrôle conforme n'est pas une validation ; une validation n'est pas une opposabilité.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposal",
+        "formal_control",
+        "human_validation",
+        "opposability"
+      ],
+      "properties": {
+        "proposal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "statut",
+            "auteur",
+            "date",
+            "origine"
+          ],
+          "properties": {
+            "statut": {
+              "description": "Statut de la proposition à sa soumission. Seule valeur admise : un proposant (humain ou agent) ne produit que des propositions.",
+              "const": "PROPOSEE"
+            },
+            "auteur": {
+              "type": "string",
+              "minLength": 1
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "origine": {
+              "enum": [
+                "humain",
+                "agent"
+              ]
+            },
+            "provenance": {
+              "description": "Exigée quand `origine` vaut `agent` (phase 3.1) : de quoi rejouer la proposition. Le fichier est signé à part (`<fichier>.sig`, clé de l'agent, espace de noms `mrc-proposition`).",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "fournisseur",
+                "modele",
+                "gabarit_sha256",
+                "entree_sha256",
+                "schema_sha256",
+                "rules_sha256",
+                "agent_version"
+              ],
+              "properties": {
+                "fournisseur": {
+                  "enum": [
+                    "anthropic",
+                    "rejeu"
+                  ]
+                },
+                "modele": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "gabarit_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "entree_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "reponse_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "schema_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "rules_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "agent_version": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "origine": {
+                    "const": "agent"
+                  }
+                },
+                "required": [
+                  "origine"
+                ]
+              },
+              "then": {
+                "required": [
+                  "provenance"
+                ]
+              }
+            }
+          ]
+        },
+        "formal_control": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "issue",
+                "outil",
+                "date"
+              ],
+              "properties": {
+                "issue": {
+                  "description": "refuse : au moins un E1 ; en_attente : E2, ou E0 (règle dont l’effet n’est pas classé par le set, remontée au porteur) ; mal_forme : E3 ou E4 ; conforme_marque : E5 ou E6 seulement ; conforme : aucun effet.",
+                  "enum": [
+                    "refuse",
+                    "en_attente",
+                    "mal_forme",
+                    "conforme_marque",
+                    "conforme"
+                  ]
+                },
+                "outil": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          ]
+        },
+        "human_validation": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "decision",
+                "validateur",
+                "date",
+                "motif"
+              ],
+              "properties": {
+                "decision": {
+                  "description": "validee : inscrite au registre pilote, avec ses marqueurs (la validation n'efface aucun marqueur) ; retournee : renvoyée au proposant ; rejetee. Un contrôle `refuse` n'admet que `rejetee`. Avec un examen : `validee` exige que toutes les écritures soient comprises et validées ; une précision demandée conduit à `retournee` ; une écriture refusée conduit à `rejetee` ou `retournee`.",
+                  "enum": [
+                    "validee",
+                    "retournee",
+                    "rejetee"
+                  ]
+                },
+                "validateur": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "motif": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "examen": {
+                  "description": "Validation explicite (banc d'essai, 09/10/2026) : la décision s'appuie sur la fiche de lecture du dossier, sur un avis par écriture, et le cas échéant sur le journal des questions posées à l'agent d'explicitation. Exigé pour toute inscription au registre pilote (tools/valider.py, tools/check_registre.py).",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "fiche_sha256",
+                    "lignes"
+                  ],
+                  "properties": {
+                    "fiche_sha256": {
+                      "description": "Empreinte de la fiche de lecture lue par le validateur (tools/fiche.py).",
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "journal_sha256": {
+                      "description": "Empreinte du journal des questions et réponses (agent/expliquer.py), s'il y en a eu.",
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "questions": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "lignes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "ligne",
+                          "avis"
+                        ],
+                        "properties": {
+                          "ligne": {
+                            "type": "string"
+                          },
+                          "avis": {
+                            "description": "comprise_validee : le validateur a compris l'écriture et la tient pour juste ; precision_demandee : il ne peut pas se prononcer sans précision du proposant ; refusee : il la tient pour fausse ou injustifiée.",
+                            "enum": [
+                              "comprise_validee",
+                              "precision_demandee",
+                              "refusee"
+                            ]
+                          },
+                          "motif": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "opposability": {
+          "description": "Phase pilote : aucune sortie n'est opposable. L'opposabilité relève d'une décision de l'instance du registre, non du dépôt.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "statut"
+          ],
+          "properties": {
+            "statut": {
+              "const": "non_ouverte"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "formal_control": {
+                "type": "object",
+                "properties": {
+                  "issue": {
+                    "const": "refuse"
+                  }
+                },
+                "required": [
+                  "issue"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "human_validation": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "decision": {
+                        "const": "rejetee"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "formal_control": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "human_validation": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema_valide": true,
+  "calculs": {
+    "ancrage": {
+      "A": true,
+      "B": true
+    },
+    "teneurs_distincts": true,
+    "ecriture_duale": false,
+    "etat_rapprochement": {
+      "A_vers_B": [
+        "a1"
+      ],
+      "B_vers_A": null
+    },
+    "concordante": true,
+    "instance_commune": true,
+    "milieu": {
+      "declaration_valide": true,
+      "maintien_structure": false,
+      "bien_forme": false,
+      "solde_maintien": null
+    }
+  },
+  "effets": [
+    {
+      "regle": "C-08",
+      "code": "E4",
+      "marqueur": "[MAINTIEN NON STRUCTURÉ]"
+    }
+  ],
+  "issue": "mal_forme",
+  "theoremes": [
+    "PR37.sans_maintien_pas_d_appui"
+  ]
+}

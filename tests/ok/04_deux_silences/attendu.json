@@ -1,0 +1,28 @@
+{
+  "schema_valide": true,
+  "calculs": {
+    "ancrage": {
+      "A": true,
+      "B": true
+    },
+    "teneurs_distincts": true,
+    "ecriture_duale": true,
+    "etat_rapprochement": {
+      "A_vers_B": [],
+      "B_vers_A": []
+    },
+    "concordante": true,
+    "instance_commune": null
+  },
+  "effets": [
+    {
+      "regle": "C-05",
+      "code": "E5",
+      "marqueur": "[AUCUNE LIGNE RÉCIPROQUE]"
+    }
+  ],
+  "issue": "conforme_marque",
+  "theoremes": [
+    "PR35.deux_silences_sont_en_ecriture_duale"
+  ]
+}
